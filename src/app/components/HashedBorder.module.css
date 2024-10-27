@@ -1,0 +1,65 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+/* .container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(https://raw.githubusercontent.com/tusharsinghbisht/ehax/refs/heads/main/public/matrix.gif) no-repeat center center/cover;
+    z-index: 2;
+    opacity: 0.4;
+    z-index: -3;
+} */
+.content {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.boundaryTop,.boundaryBottom {
+    user-select: none;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color:  transparent;
+    text-align: center;
+    color: var(--text); 
+    font-size: 30px;
+}
+
+.boundaryTop {
+    top: 0;
+    left: 0;
+}
+.boundaryBottom {
+    bottom: 0;
+    left: 0;
+}
+
+.boundaryLeft, .boundaryRight {
+    user-select: none;
+    position: absolute;
+    /* width: 30px; */
+    margin: 0px 8px;
+    padding-bottom: 12px;
+    height: 100%;
+    /* background-color:  red; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text); 
+    font-size: 30px;
+}
+.boundaryLeft {
+    left: 0;
+}
+
+.boundaryRight {
+    right: 0;
+}

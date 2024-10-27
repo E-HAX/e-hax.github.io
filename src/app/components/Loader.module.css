@@ -1,0 +1,22 @@
+.loading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: calc(150px / cos(45deg));
+  height: 14px;
+  background: repeating-linear-gradient(-45deg, var(--text) 0 15px, var(--background) 0 20px)
+    left/200% 100%;
+  animation: l3 2s infinite linear;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+@keyframes l3 {
+  100% {
+    background-position: right;
+  }
+}

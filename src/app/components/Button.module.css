@@ -1,0 +1,18 @@
+.btn {
+    outline: none;
+    border: none;
+    background: transparent;
+    color: var(--background);
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: var(--text);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: inherit;
+    /* border-radius: 5px; */
+}
+.btn:active {
+    background-color: white;
+    color: var(--text);
+}
