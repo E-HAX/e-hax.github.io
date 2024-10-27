@@ -13,3 +13,18 @@ VANTA.GLOBE({
     size: 0.90,
     backgroundColor: 0x0
   })
+
+const handleResize = () => {
+  const horizontalHashes = document.querySelectorAll(".horizontal-hashes")
+  horizontalHashes.forEach(e => e.innerText =  "# ".repeat(window.innerWidth / 34))
+
+  const verticalHashes = document.querySelectorAll(".vertical-hashes")
+  verticalHashes.forEach(e => {
+    e.innerHTML = `<p>#</p>`.repeat(window.innerHeight/40)
+  })
+
+}
+
+// window.onload = handleResize;
+window.addEventListener("resize", handleResize);
+

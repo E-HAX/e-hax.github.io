@@ -6,7 +6,7 @@ const Loader = ({ children }: { children: React.ReactNode }) => {
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        setTimeout(() => setLoading(false),2500)
+        setTimeout(() => setLoading(false), 300)
     }, [])
 
     if (loading) {

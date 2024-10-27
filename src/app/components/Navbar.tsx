@@ -9,6 +9,21 @@ interface TabData {
   content: React.ReactNode;
 }
 
+const AboutTab = () => {
+  return (
+    <div style={{ fontSize: "15px", textAlign: "center" }}>
+      <br />
+      <pre>
+        <code>{`███████╗██╗  ██╗ █████╗ ██╗  ██╗\n██╔════╝██║  ██║██╔══██╗╚██╗██╔╝\n█████╗  ███████║███████║ ╚███╔╝ \n██╔══╝  ██╔══██║██╔══██║ ██╔██╗ \n███████╗██║  ██║██║  ██║██╔╝ ██╗\n╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝`}</code>
+      </pre>
+
+      <br />
+      <br />
+
+      <p>EHAX is the official ethical hacking and cybersecurity society of DTU and its their official website</p>
+    </div>
+  )
+}
 const Navbar = () => {
   // const [page, setPage] = useState("home");
   const [tabs, setTabs] = useState<TabData[]>([
@@ -16,7 +31,7 @@ const Navbar = () => {
     // { id: 2, title: "Contact", content: (<></>) },
   ]);
 
-  const tabContent = [<p key="0">home</p>, <p key="1">about</p>, <p key="2">team</p>, <p key="3">contact</p>];
+  const tabContent = [<p key="0">home</p>, <AboutTab key="1" />, <p key="2">team</p>, <p key="3">contact</p>];
 
   const setCurrTab = (page: string, id: number) => {
     // setPage(page);
