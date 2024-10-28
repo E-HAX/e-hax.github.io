@@ -1,0 +1,100 @@
+{
+    "members": [
+        {
+            "id": 7,
+            "name": "Anuj Rawat (president)",
+            "position": "member",
+            "username": "tazer",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 8,
+            "name": "Tarush",
+            "position": "member",
+            "username": "anonimbus",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 9,
+            "name": "Akshat Jain",
+            "position": "member",
+            "username": "bedstrom",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 10,
+            "name": "Satvik Saksena",
+            "position": "member",
+            "username": "trickastley",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 11,
+            "name": "Kartik Vats",
+            "position": "member",
+            "username": "CyC",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 12,
+            "name": "Hardik",
+            "position": "member",
+            "username": "kms",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 13,
+            "name": "Singey",
+            "position": "member",
+            "username": "yegnis",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 14,
+            "name": "Mayank Jangid",
+            "position": "member",
+            "username": "the_moon_guy",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 15,
+            "name": "Mauray Jain",
+            "position": "member",
+            "username": "mauray",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 16,
+            "name": "Arsh Abbas",
+            "position": "member",
+            "username": "cha0s",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 17,
+            "name": "Arnabi Dutta",
+            "position": "member",
+            "username": "g1ow",
+            "about": "",
+            "link": ""
+        },
+        {
+            "id": 18,
+            "name": "Tushar (devloper)",
+            "position": "member",
+            "username": "benzo",
+            "about": "",
+            "link": ""
+        }
+    ]
+}

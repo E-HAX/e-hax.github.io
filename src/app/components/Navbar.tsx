@@ -1,37 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styles from "./Navbar.module.css";
 import TabManager from "./Tab";
+import AboutTab from "./tabs/AboutTab";
+import EventTab from "./tabs/EventTab";
+import BlogTab from "./tabs/BlogTab";
+import TeamTab from "./tabs/TeamTab";
+import TabData from "../interface/TabData";
+import { AppContext } from "../context/AppContext";
 
-interface TabData {
-  id: number;
-  title: string;
-  content: React.ReactNode;
-}
-
-const AboutTab = () => {
-  return (
-    <div style={{ fontSize: "15px", textAlign: "center" }}>
-      <br />
-      <pre>
-        <code>{`███████╗██╗  ██╗ █████╗ ██╗  ██╗\n██╔════╝██║  ██║██╔══██╗╚██╗██╔╝\n█████╗  ███████║███████║ ╚███╔╝ \n██╔══╝  ██╔══██║██╔══██║ ██╔██╗ \n███████╗██║  ██║██║  ██║██╔╝ ██╗\n╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝`}</code>
-      </pre>
-
-      <br />
-      <br />
-
-      <p>EHAX is the official ethical hacking and cybersecurity society of DTU and its their official website</p>
-    </div>
-  )
-}
 const Navbar = () => {
   // const [page, setPage] = useState("home");
-  const [tabs, setTabs] = useState<TabData[]>([
-    // { id: 1, title: "About", content: (<>Hello everyone</>)},
-    // { id: 2, title: "Contact", content: (<></>) },
-  ]);
-
-  const tabContent = [<p key="0">home</p>, <AboutTab key="1" />, <p key="2">team</p>, <p key="3">contact</p>];
+  const { tabs, setTabs } = useContext(AppContext)
+  const tabContent = [
+    <AboutTab key="0" />,
+    <BlogTab key="1" />,
+    <TeamTab key="2" />,
+    <EventTab key="3" />,
+  ];
 
   const setCurrTab = (page: string, id: number) => {
     // setPage(page);
@@ -51,19 +37,9 @@ const Navbar = () => {
       <div className={styles.navbar}>
         <ul className={styles.navList}>
           <li
-            // onDoubleClick={() => setCurrTab("home", 0)}
+            onClick={() => setCurrTab("/about", 0)}
             className={
-              tabs.length == 0 || tabs[tabs.length - 1].id == 0
-                ? styles.navItemActive
-                : styles.navItem
-            }
-          >
-            /home
-          </li>
-          <li
-            onClick={() => setCurrTab("about", 1)}
-            className={
-              tabs.length != 0 && tabs[tabs.length - 1].id == 1
+              tabs.length != 0 && tabs[tabs.length - 1].id == 0
                 ? styles.navItemActive
                 : styles.navItem
             }
@@ -71,9 +47,19 @@ const Navbar = () => {
             /about
           </li>
           <li
-            onClick={() => setCurrTab("team", 2)}
+            onClick={() => setCurrTab("/blog", 1)}
             className={
-              tabs.length != 0 && tabs[tabs.length - 1].id == 2
+              tabs.length != 0 && tabs[tabs.length - 1].id == 1
+                ? styles.navItemActive
+                : styles.navItem
+            }
+          >
+            /blog
+          </li>
+          <li
+            onClick={() => setCurrTab("/team", 2)}
+            className={
+              tabs.length != 0 && (tabs[tabs.length - 1].id == 2 || tabs[tabs.length - 1].id == 7)
                 ? styles.navItemActive
                 : styles.navItem
             }
@@ -81,19 +67,19 @@ const Navbar = () => {
             /team
           </li>
           <li
-            onClick={() => setCurrTab("contact", 3)}
+            onClick={() => setCurrTab("/event", 3)}
             className={
               tabs.length != 0 && tabs[tabs.length - 1].id == 3
                 ? styles.navItemActive
                 : styles.navItem
             }
           >
-            /contact
+            /event
           </li>
         </ul>
       </div>
 
-      <TabManager tabs={tabs} setTabs={setTabs} />
+      <TabManager />
     </>
   );
 };

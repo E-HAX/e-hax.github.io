@@ -1,12 +1,9 @@
 "use state";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Tab.module.css";
+import TabData from "../interface/TabData";
+import { AppContext } from "../context/AppContext";
 
-interface TabData {
-  id: number;
-  title: string;
-  content: React.ReactNode;
-}
 
 interface TabWindowProps {
   curr: TabData;
@@ -64,13 +61,11 @@ const TabWindow = ({ curr, tabs, setTabs }: TabWindowProps) => {
 
   return (
     <div
-      style={{
-        padding: "10px 20px",
-        margin: "10px",
-        cursor: "move",
+      style={window.innerWidth > 700 ? {
         top: `${position.y}px`,
         left: `${position.x}px`,
-      }}
+      } : {}}
+      onMouseLeave={() => setIsDragging(false)}
       className={styles.tab}
       onMouseMove={handleMouseMove}
       onMouseDown={handleMouseDown}
@@ -85,17 +80,21 @@ const TabWindow = ({ curr, tabs, setTabs }: TabWindowProps) => {
         </span>
       </div>
 
-      <div className={styles.tabContent}>{curr.content}</div>
+      <div className={styles.tabContent}>
+        {
+          curr.content ? curr.content : (
+            curr.about ? curr.about : ""
+          )
+        }
+      </div>
     </div>
   );
 };
 
-interface TabManagerProps {
-  tabs: TabData[];
-  setTabs: React.Dispatch<React.SetStateAction<TabData[]>>;
-}
+const TabManager = () => {
 
-const TabManager = ({ tabs, setTabs }: TabManagerProps) => {
+  const { tabs, setTabs } = useContext(AppContext)
+
   return (
     <>
       {tabs.map((tab) => (

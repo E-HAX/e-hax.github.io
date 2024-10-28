@@ -54,3 +54,15 @@
   font-weight: bold;
   font-size: 40px;
 }
+.discordbtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.discordbtn svg {
+  margin-right: 8px;
+}
+.discordlink {
+  text-decoration: none;
+}

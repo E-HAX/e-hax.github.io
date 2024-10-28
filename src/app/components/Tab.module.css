@@ -9,9 +9,39 @@
     color: var(--text);
     z-index: 2;
     user-select: none;
+    overflow-y: scroll;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: move;
   }
   
+  @keyframes slide {
+    from {
+      left: -100vw;
+      /* padding: 0; */
+    }
+    to {
+      left: 0!important;
+      /* padding: 10px 20px; */
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    .tab {
+      /* display: none; */
+      width: 100vw;
+      height: 100vh;
+      top: 0!important;
+      padding: 10px 20px;
+      left: 0;
+      margin: 0 !important;
+      animation: slide 0.7s;
+    }
+  }
+
   .tabTop {
+    position: sticky;
+    background-color: #071807de;
+    top: 0;
     border-bottom: 2px solid var(--text);
     display: flex;
     align-items: center;
@@ -34,4 +64,5 @@
 
   .tabContent {
     margin-top: 15px;
+    /* height: 100%; */
   }

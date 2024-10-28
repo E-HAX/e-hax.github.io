@@ -1,13 +1,11 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import styles from "./Loader.module.css"
+import { AppContext } from '../context/AppContext';
 
 const Loader = ({ children }: { children: React.ReactNode }) => {
-    const [loading, setLoading] = useState<boolean>(true);
+    const { loading } = useContext(AppContext);
 
-    useEffect(() => {
-        setTimeout(() => setLoading(false), 300)
-    }, [])
 
     if (loading) {
         return <div className={styles.loading}><div className={styles.loader}></div></div>

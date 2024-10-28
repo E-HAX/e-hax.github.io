@@ -27,11 +27,11 @@ const HashedBorder = ({ children }: { children: React.ReactNode }) => {
       <div className={`${styles.boundaryLeft} vertical-hashes`}>
         <VerticalHash />
       </div>
-      <div className={styles.boundaryRight}>
+      <div className={`${styles.boundaryRight} vertical-hashes`}>
         <VerticalHash />
       </div>
       <div className={`${styles.boundaryTop} horizontal-hashes`}>{HorizontalHash}</div>
-      <div className={styles.boundaryBottom}>{HorizontalHash}</div>
+      <div className={`${styles.boundaryBottom} horizontal-hashes`}>{HorizontalHash}</div>
       <div className={styles.content}>{children}</div>
     </div>
   );
