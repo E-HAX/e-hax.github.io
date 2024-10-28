@@ -25,7 +25,7 @@ const TeamTab = () => {
     <div className={styles.nameList}>
       {members.map((member) => (
         <p
-          onDoubleClick={() => setCurrTab(`/team/${member.username}`, member.id, member)}
+          onClick={() => setCurrTab(`/team/${member.username}`, member.id, member)}
           key={member.id}
         >
           {`${member.username} - ${member.name} `}

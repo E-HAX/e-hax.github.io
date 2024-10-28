@@ -4,6 +4,7 @@
     width: 550px;
     height: 450px;
     background-color: #07180783;
+    /* background-color: hsla(120, 6%, 7%, 0.514); */
     backdrop-filter: blur(10px);
     border: 2px solid var(--text);
     color: var(--text);
@@ -42,6 +43,7 @@
   .tabTop {
     position: sticky;
     background-color: #071807de;
+    /* background-color: #000000de; */
     top: 0;
     border-bottom: 2px solid var(--text);
     display: flex;
