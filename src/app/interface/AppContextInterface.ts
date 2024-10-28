@@ -1,23 +1,23 @@
 import { Dispatch, SetStateAction } from "react";
 import TabData from "./TabData";
 
-interface MemberData {
+export interface MemberData {
     id: number;
     name: string;
     username: string;
     about: string;
     link: string;
 }
-
+export interface SiteData {
+    members: MemberData[]
+}
 // interface BlogData {}
 // interface EventData {}
 
 export default interface AppContextInterface {
     tabs: TabData[],
     setTabs: Dispatch<SetStateAction<TabData[]>>,
-    data: {
-        members: MemberData[]
-    },
+    data: SiteData,
     loading: boolean,
     setLoading: Dispatch<SetStateAction<boolean>>,
 }
