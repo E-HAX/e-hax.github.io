@@ -2,99 +2,111 @@
     "members": [
         {
             "id": 7,
-            "name": "Anuj Rawat (president)",
-            "position": "member",
+            "name": "Anuj Rawat",
+            "position": "President",
             "username": "tazer",
-            "about": "",
-            "link": ""
+            "ascii_art": "▗▄▄▄▖▗▄▖ ▗▄▄▄▄▖▗▄▄▄▖▗▄▄▖ \n  █ ▐▌ ▐▌   ▗▞▘▐▌   ▐▌ ▐▌\n  █ ▐▛▀▜▌ ▗▞▘  ▐▛▀▀▘▐▛▀▚▖\n  █ ▐▌ ▐▌▐▙▄▄▄▖▐▙▄▄▖▐▌ ▐▌",
+            "link": "",
+            "about": ""
         },
         {
             "id": 8,
             "name": "Tarush",
-            "position": "member",
+            "position": "Hacker",
             "username": "anonimbus",
-            "about": "",
-            "link": ""
+            "ascii_art": " ▗▄▖ ▗▖  ▗▖ ▗▄▖ ▗▖  ▗▖▗▄▄▄▖▗▖  ▗▖▗▄▄▖ ▗▖ ▗▖ ▗▄▄▖\n▐▌ ▐▌▐▛▚▖▐▌▐▌ ▐▌▐▛▚▖▐▌  █  ▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▌   \n▐▛▀▜▌▐▌ ▝▜▌▐▌ ▐▌▐▌ ▝▜▌  █  ▐▌  ▐▌▐▛▀▚▖▐▌ ▐▌ ▝▀▚▖\n▐▌ ▐▌▐▌  ▐▌▝▚▄▞▘▐▌  ▐▌▗▄█▄▖▐▌  ▐▌▐▙▄▞▘▝▚▄▞▘▗▄▄▞▘",
+            "link": "",
+            "about": ""
         },
         {
             "id": 9,
             "name": "Akshat Jain",
-            "position": "member",
+            "position": "Hacker",
             "username": "bedstrom",
-            "about": "",
-            "link": ""
+            "ascii_art": "▗▄▄▖ ▗▄▄▄▖▗▄▄▄   ▗▄▄▖▗▄▄▄▖▗▄▖ ▗▄▄▖ ▗▖  ▗▖\n▐▌ ▐▌▐▌   ▐▌  █ ▐▌     █ ▐▌ ▐▌▐▌ ▐▌▐▛▚▞▜▌\n▐▛▀▚▖▐▛▀▀▘▐▌  █  ▝▀▚▖  █ ▐▌ ▐▌▐▛▀▚▖▐▌  ▐▌\n▐▙▄▞▘▐▙▄▄▖▐▙▄▄▀ ▗▄▄▞▘  █ ▝▚▄▞▘▐▌ ▐▌▐▌  ▐▌",
+            "link": "",
+            "about": ""
         },
         {
             "id": 10,
             "name": "Satvik Saksena",
-            "position": "member",
+            "position": "Hacker",
             "username": "trickastley",
-            "about": "",
-            "link": ""
+            "ascii_art": "▗▄▄▄▖▗▄▄▖ ▗▄▄▄▖ ▗▄▄▖▗▖ ▗▖ ▗▄▖  ▗▄▄▖▗▄▄▄▖▗▖   ▗▄▄▄▖▗▖  ▗▖\n  █  ▐▌ ▐▌  █  ▐▌   ▐▌▗▞▘▐▌ ▐▌▐▌     █  ▐▌   ▐▌    ▝▚▞▘ \n  █  ▐▛▀▚▖  █  ▐▌   ▐▛▚▖ ▐▛▀▜▌ ▝▀▚▖  █  ▐▌   ▐▛▀▀▘  ▐▌  \n  █  ▐▌ ▐▌▗▄█▄▖▝▚▄▄▖▐▌ ▐▌▐▌ ▐▌▗▄▄▞▘  █  ▐▙▄▄▖▐▙▄▄▖  ▐▌  ",
+            "link": "",
+            "about": ""
         },
         {
             "id": 11,
             "name": "Kartik Vats",
-            "position": "member",
+            "position": "Hacker",
             "username": "CyC",
-            "about": "",
-            "link": ""
+            "ascii_art": " ▗▄▄▖▗▖  ▗▖▗▄▄▖\n▐▌    ▝▚▞▘▐▌   \n▐▌     ▐▌ ▐▌   \n▝▚▄▄▖  ▐▌ ▝▚▄▄▖",
+            "link": "",
+            "about": ""
         },
         {
             "id": 12,
             "name": "Hardik",
-            "position": "member",
-            "username": "kms",
-            "about": "",
-            "link": ""
+            "position": "Hacker",
+            "username": "caffe!n",
+            "ascii_art": " ▗▄▄▖ ▗▄▖ ▗▄▄▄▖▗▄▄▄▖▗▄▄▄▖█ ▗▖  ▗▖\n▐▌   ▐▌ ▐▌▐▌   ▐▌   ▐▌   █ ▐▛▚▖▐▌\n▐▌   ▐▛▀▜▌▐▛▀▀▘▐▛▀▀▘▐▛▀▀▘█ ▐▌ ▝▜▌\n▝▚▄▄▖▐▌ ▐▌▐▌   ▐▌   ▐▙▄▄▖█ ▐▌  ▐▌",
+            "link": "",
+            "about": ""
         },
         {
             "id": 13,
             "name": "Singey",
-            "position": "member",
+            "position": "Hacker",
             "username": "yegnis",
-            "about": "",
-            "link": ""
+            "ascii_art": "▗▖  ▗▖▗▄▄▄▖ ▗▄▄▖▗▖  ▗▖▗▄▄▄▖ ▗▄▄▖\n ▝▚▞▘ ▐▌   ▐▌   ▐▛▚▖▐▌  █  ▐▌   \n  ▐▌  ▐▛▀▀▘▐▌▝▜▌▐▌ ▝▜▌  █   ▝▀▚▖\n  ▐▌  ▐▙▄▄▖▝▚▄▞▘▐▌  ▐▌▗▄█▄▖▗▄▄▞▘",
+            "link": "",
+            "about": ""
         },
         {
             "id": 14,
             "name": "Mayank Jangid",
-            "position": "member",
-            "username": "the_moon_guy",
-            "about": "",
-            "link": ""
+            "position": "Hacker",
+            "username": "moon_guy",
+            "ascii_art": "▗▖  ▗▖ ▗▄▖  ▗▄▖ ▗▖  ▗▖     ▗▄▄▖▗▖ ▗▖▗▖  ▗▖\n▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▛▚▖▐▌    ▐▌   ▐▌ ▐▌ ▝▚▞▘ \n▐▌  ▐▌▐▌ ▐▌▐▌ ▐▌▐▌ ▝▜▌    ▐▌▝▜▌▐▌ ▐▌  ▐▌  \n▐▌  ▐▌▝▚▄▞▘▝▚▄▞▘▐▌  ▐▌    ▝▚▄▞▘▝▚▄▞▘  ▐▌  ",
+            "link": "",
+            "about": ""
         },
         {
             "id": 15,
             "name": "Mauray Jain",
-            "position": "member",
+            "position": "Hacker",
             "username": "mauray",
-            "about": "",
-            "link": ""
+            "ascii_art": "▗▖  ▗▖ ▗▄▖ ▗▖ ▗▖▗▄▄▖  ▗▄▖▗▖  ▗▖\n▐▛▚▞▜▌▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▝▚▞▘ \n▐▌  ▐▌▐▛▀▜▌▐▌ ▐▌▐▛▀▚▖▐▛▀▜▌ ▐▌  \n▐▌  ▐▌▐▌ ▐▌▝▚▄▞▘▐▌ ▐▌▐▌ ▐▌ ▐▌  ",
+            "link": "",
+            "about": ""
         },
         {
             "id": 16,
             "name": "Arsh Abbas",
-            "position": "member",
+            "position": "Hacker",
             "username": "cha0s",
-            "about": "",
-            "link": ""
+            "ascii_art": " ▗▄▄▖▗▖ ▗▖ ▗▄▖ ▄▀▀▚▖ ▗▄▄▖\n▐▌   ▐▌ ▐▌▐▌ ▐▌█  ▐▌▐▌   \n▐▌   ▐▛▀▜▌▐▛▀▜▌█  ▐▌ ▝▀▚▖\n▝▚▄▄▖▐▌ ▐▌▐▌ ▐▌▀▄▄▞▘▗▄▄▞▘",
+            "link": "",
+            "about": ""
         },
         {
             "id": 17,
             "name": "Arnabi Dutta",
-            "position": "member",
+            "position": "Hacker",
             "username": "g1ow",
-            "about": "",
-            "link": ""
+            "ascii_art": " ▗▄▄▖█  ▗▄▖ ▗▖ ▗▖\n▐▌   █ ▐▌ ▐▌▐▌ ▐▌\n▐▌▝▜▌█ ▐▌ ▐▌▐▌ ▐▌\n▝▚▄▞▘█ ▝▚▄▞▘▐▙█▟▌",
+            "link": "",
+            "about": ""
         },
         {
             "id": 18,
-            "name": "Tushar (devloper)",
-            "position": "member",
+            "name": "Tushar",
+            "position": "Hacker",
             "username": "benzo",
-            "about": "",
-            "link": ""
+            "ascii_art": " ___ ___ _  _ _______  \n| _ ) __| \\| |_  / _ \\ \n| _ \\ _|| .` |/ / (_) |\n|___/___|_|\\_/___\\___/ ",
+            "link": "https://tusharr.xyz/",
+            "about": "Hey, myself Tushar!\nHacker at EHAX.\n"
         }
     ]
 }

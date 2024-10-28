@@ -2,14 +2,15 @@ import React, { useContext } from "react";
 import styles from "./TeamTab.module.css";
 import { AppContext } from "@/app/context/AppContext";
 import TabData from "@/app/interface/TabData";
+import { MemberData } from "@/app/interface/AppContextInterface";
 
 const TeamTab = () => {
   const { tabs, setTabs, data } = useContext(AppContext);
   const { members } = data;
 
-  const setCurrTab = (title: string, id: number, about: string) => {
+  const setCurrTab = (title: string, id: number, member: MemberData) => {
     // setPage(page);
-    const tab_to_add = { id, title, about };
+    const tab_to_add = { id, title, member };
     const tabs_without_current: TabData[] = [];
     tabs.forEach((tab) => {
       if (tab.id != tab_to_add.id) {
@@ -24,10 +25,10 @@ const TeamTab = () => {
     <div className={styles.nameList}>
       {members.map((member) => (
         <p
-          onDoubleClick={() => setCurrTab(`/team/${member.username}`, 7, member.about)}
+          onDoubleClick={() => setCurrTab(`/team/${member.username}`, member.id, member)}
           key={member.id}
         >
-          {`${member.username} - ${member.name}`}
+          {`${member.username} - ${member.name} `}
         </p>
       ))}
     </div>

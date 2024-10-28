@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import styles from "./Tab.module.css";
 import TabData from "../interface/TabData";
 import { AppContext } from "../context/AppContext";
+import Button from "./Button";
 
 
 interface TabWindowProps {
@@ -83,7 +84,29 @@ const TabWindow = ({ curr, tabs, setTabs }: TabWindowProps) => {
       <div className={styles.tabContent}>
         {
           curr.content ? curr.content : (
-            curr.about ? curr.about : ""
+            curr.member ? (
+              <>
+                <pre style={{ fontSize: "14px" }}>
+                  <code>
+                    {curr.member.ascii_art}
+                  </code>
+                </pre>
+                <br />
+                <p style={{ fontSize: "20px", fontWeight: "bold" }}>{`>>> ${curr.member.name}`}</p><br />
+                <p style={{ fontSize: "17px"}}>{`Position: ${curr.member.position}`}</p>
+                <br />
+                <br />
+                <p>{curr.member.about}</p>
+                <br />
+                <br />
+                <br />
+                {
+                  curr.member.link && (
+                    <a href={curr.member.link} target="__blank"><Button style={{ fontSize: "15px" }}>Know More</Button></a>
+                  )
+                }
+              </>
+          ) : ""
           )
         }
       </div>

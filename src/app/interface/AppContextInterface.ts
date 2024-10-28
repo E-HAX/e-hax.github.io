@@ -7,6 +7,8 @@ export interface MemberData {
     username: string;
     about: string;
     link: string;
+    ascii_art: string;
+    position: string;
 }
 export interface SiteData {
     members: MemberData[]

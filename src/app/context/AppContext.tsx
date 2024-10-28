@@ -8,7 +8,7 @@ export const AppContext = createContext<AppContextInterface>({} as AppContextInt
 
 export const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [tabs, setTabs] = useState<TabData[]>([]);
-    const [data, setData] = useState<SiteData>({} as SiteData);
+    const [data, setData] = useState<SiteData>({ members: [] } as SiteData);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export const AppContextProvider = ({ children }: { children: React.ReactNode }) 
                     const data = await res.json();
                     setData(data);
                 } catch(err) {
-                    setData({} as SiteData)
+                    // setData({  } as SiteData)
                     if ((err as Error).name === 'AbortError') {
                         console.log('Fetch aborted');
                     } else {

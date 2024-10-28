@@ -17,6 +17,7 @@
   color: var(--text);
   cursor: pointer;
 }
+
 .navItemActive {
   cursor: pointer;
   margin: 10px 12px;
@@ -45,5 +46,28 @@
   0% {
     background-color: transparent;
     color: transparent;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navItem,
+  .navItemActive,
+  .navItemActive::after {
+    font-size: 18px;
+  }
+  .navbar {
+    margin-top: 0px;
+  }
+  .navList {
+    padding: 14px 0px;
+    background: rgba(18, 17, 17, 0.523);
+    backdrop-filter: blur(5px);
+  }
+}
+@media only screen and (max-width: 450px) {
+  .navItem,
+  .navItemActive,
+  .navItemActive::after {
+    font-size: 15px;
   }
 }
