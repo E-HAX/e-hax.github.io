@@ -9,7 +9,8 @@
     color: var(--text);
     z-index: 2;
     user-select: none;
-    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 10px 20px;
     margin: 10px;
     cursor: move;
