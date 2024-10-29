@@ -2,9 +2,9 @@
   position: absolute;
   width: 550px;
   height: 450px;
-  background-color: #07180783;
+  background-color: #0718079c;
   /* background-color: hsla(120, 6%, 7%, 0.514); */
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border: 2px solid var(--text);
   color: var(--text);
   z-index: 2;

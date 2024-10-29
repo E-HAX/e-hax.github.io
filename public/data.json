@@ -6,7 +6,7 @@
             "position": "President",
             "username": "tazer",
             "ascii_art": "  _____ _    _______ ___ \n |_   _/_\\  |_  / __| _ \\ \n   | |/ _ \\  / /| _||   /\n   |_/_/ \\_\\/___|___|_|_\\",
-            "about": "",
+            "about": "Final year EE stud\ni lub anime\nweb ctf <3",
             "instagram": "https://www.instagram.com/anujrawatazer/",
             "linkedin": "https://www.linkedin.com/in/tazer/",
             "website": "https://ajtazer.xyz/"
@@ -54,7 +54,8 @@
             "position": "Hacker",
             "username": "caffe!n",
             "ascii_art": "   ___   _   ___ ___ ___ _ _  _ \n  / __| /_\\ | __| __| __| | \\| |\n | (__ / _ \\| _|| _|| _||_| .` |\n  \\___/_/ \\_\\_| |_| |___(_)_|\\_|",
-            "about": ""
+            "about": "batman at ehax",
+            "instagram": "https://instagram.com/kaunhardik"
         },
         {
             "id": 13,
@@ -64,7 +65,8 @@
             "ascii_art": " __   _____ ___ _  _ ___ ___ \n \\ \\ / / __/ __| \\| |_ _/ __|\n  \\ V /| _| (_ | .` || |\\__ \\\n   |_| |___\\___|_|\\_|___|___/",
             "about": "First year CSE student\nI love to play video games & make racist jokes",
             "linkedin": "https://www.linkedin.com/in/singeydorje/",
-            "instagram": "https://www.instagram.com/singey_dorje"
+            "instagram": "https://www.instagram.com/singey_dorje",
+            "discord": "https://discord.com/users/813983048374681621"
         },
         {
             "id": 14,
@@ -75,7 +77,8 @@
             "linkedin": "https://linkedin.com/in/mayank-jangid-805393310",
             "instagram": "www.instagram.com/the_moon_guy__/",
             "github": "https://github.com/mayank-jangid-moon",
-            "about": "First Year CSE Student\nC >> Python\npwn is nOiCe"
+            "about": "First Year CSE Student\nC >> Python\npwn is nOiCe",
+            "discord": "https://discord.com/users/920857705684537405"
         },
         {
             "id": 15,
@@ -86,7 +89,8 @@
             "about": "First year CSE student\nLow level dev\nI use Arch and NeoVim, btw\nCTF boosts my adrenaline",
             "github": "https://github.com/Mauray-Jain",
             "instagram": "www.instagram.com/_maurayjain_/",
-            "linkedin": "https://www.linkedin.com/in/mauray-jain-826972335/"
+            "linkedin": "https://www.linkedin.com/in/mauray-jain-826972335/",
+            "discord": "https://discordapp.com/users/1010903145444024330"
         },
         {
             "id": 16,
@@ -95,8 +99,9 @@
             "username": "cha0s",
             "linkedin": "https://www.linkedin.com/in/arsh-abbas-550800307/",
             "ascii_art": "   ___ _  _   _   __  ___ \n  / __| || | /_\\ /  \\/ __|\n | (__| __ |/ _ \\ () \\__ \\\n  \\___|_||_/_/ \\_\\__/|___/",
-            "about": "CSE first year\nalso called Osama",
-            "instagram": "https://instagram.com/arsh_abbas06"
+            "about": "first year CSE Student at IIT Bawana\nknown as `osamabhundladen` in ehax\nbakchodi >>",
+            "instagram": "https://instagram.com/arsh_abbas06",
+            "discord": "https://discord.com/users/813293734053019680"
         },
         {
             "id": 17,
@@ -104,7 +109,9 @@
             "position": "Hacker",
             "username": "g1ow",
             "ascii_art": "   ___ _  _____      __\n  / __/ |/ _ \\ \\    / /\n | (_ | | (_) \\ \\/\\/ / \n  \\___|_|\\___/ \\_/\\_/  ",
-            "about": ""
+            "about": "Proud representative of all the Queens in Cybersec\n\nFirst year CSE Girlie\nVoice of Ehax, hit me up for all your announcements and communication needs\nI will get the flag no matter what - either by solving or ~black magic~",
+            "discord": "https://discordapp.com/users/975408524270121000",
+            "github": "https://github.com/ArnabiDutta"
         },
         {
             "id": 18,
@@ -116,7 +123,7 @@
             "instagram": "https://instagram.com/tushar_coder",
             "linkedin": "https://linkedin.com/in/tusharsinghbisht",
             "github": "https://github.com/tusharsinghbisht",
-            "about": "First year EE Student\nHacker at EHAX. can do anything.\n\n`Ye site mene banayi hai`"
+            "about": "First year EE Student\nSpiderman (web developer)\nprogrammer. can do anything\n\n`Ye site mene banayi hai`"
         }
     ]
 }
