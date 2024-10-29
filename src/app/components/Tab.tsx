@@ -3,8 +3,7 @@ import React, { useContext, useState } from "react";
 import styles from "./Tab.module.css";
 import TabData from "../interface/TabData";
 import { AppContext } from "../context/AppContext";
-import Button from "./Button";
-import { FaLink } from "react-icons/fa";
+import MemberTab from "./tabs/MemberTab";
 
 interface TabWindowProps {
   curr: TabData;
@@ -86,44 +85,7 @@ const TabWindow = ({ curr, tabs, setTabs }: TabWindowProps) => {
         {curr.content ? (
           curr.content
         ) : curr.member ? (
-          <>
-            <pre style={{ fontSize: "14px" }}>
-              <code>
-                {curr.member.ascii_art}
-                <br />
-                <br />
-                <p
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: "bold",
-                    marginBottom: "5px",
-                  }}
-                >{`>>> ${curr.member.name}`}</p>
-                <p
-                  style={{ fontSize: "14px" }}
-                >{`Position: ${curr.member.position}`}</p>
-                <br />
-                <br />
-                <p style={{ fontSize: "15px" }}>{curr.member.about}</p>
-              </code>
-            </pre>
-            <br />
-            <br />
-            {curr.member.link && (
-              <a href={curr.member.link} target="__blank" style={{ textDecoration: "none" }}>
-                <Button
-                  style={{
-                    fontSize: "15px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between"
-                  }}
-                >
-                  <FaLink size={18} style={{ marginRight: "5px" }} /> <span>{curr.member.linkText}</span>
-                </Button>
-              </a>
-            )}
-          </>
+            <MemberTab member={curr.member} />
         ) : (
           ""
         )}

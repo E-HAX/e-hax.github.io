@@ -11,3 +11,31 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+::selection {
+    background: rgba(255, 255, 255, 0.923);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(19, 19, 19); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+background: #33ff0a3f; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #37ff0a7b; 
+}
+a{
+  user-select: none;
+  -webkit-user-drag: none;
+}

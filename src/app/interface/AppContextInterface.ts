@@ -6,10 +6,13 @@ export interface MemberData {
     name: string;
     username: string;
     about: string;
-    link: string;
-    linkText: string;
     ascii_art: string;
     position: string;
+    linkedin: string;
+    instagram: string;
+    website: string;
+    github: string;
+    discord: string;
 }
 export interface SiteData {
     members: MemberData[]

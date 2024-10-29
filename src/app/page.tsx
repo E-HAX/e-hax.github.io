@@ -11,7 +11,7 @@ export default function Home() {
         <div className={styles.content}>
           <h1 className={styles.header}>Welcome to EHAX.</h1>
           <p className={styles.desc}>the official ethical hacking and cybersecurity society of DTU</p>
-          <a href="https://discord.gg/ZahW64GeWB" target="__blank" className={styles.discordlink}>
+          <a href="https://discord.gg/ZahW64GeWB" target="__blank" className={styles.discordlink} draggable={false}>
           <Button className={styles.discordbtn}><FaDiscord size={25} /> Enter Discord!</Button>
           </a>
         </div>

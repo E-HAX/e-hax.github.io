@@ -6,8 +6,10 @@
             "position": "President",
             "username": "tazer",
             "ascii_art": "  _____ _    _______ ___ \n |_   _/_\\  |_  / __| _ \\ \n   | |/ _ \\  / /| _||   /\n   |_/_/ \\_\\/___|___|_|_\\",
-            "link": "",
-            "about": ""
+            "about": "",
+            "instagram": "https://www.instagram.com/anujrawatazer/",
+            "linkedin": "https://www.linkedin.com/in/tazer/",
+            "website": "https://ajtazer.xyz/"
         },
         {
             "id": 8,
@@ -15,7 +17,6 @@
             "position": "Coordinator",
             "username": "anonimbus",
             "ascii_art": "    _   _  _  ___  _  _ ___ __  __ ___ _   _ ___ \n   /_\\ | \\| |/ _ \\| \\| |_ _|  \\/  | _ ) | | / __|\n  / _ \\| .` | (_) | .` || || |\\/| | _ \\ |_| \\__ \\ \n /_/ \\_\\_|\\_|\\___/|_|\\_|___|_|  |_|___/\\___/|___/",
-            "link": "",
             "about": ""
         },
         {
@@ -24,8 +25,10 @@
             "position": "Coordinator",
             "username": "bedstorm",
             "ascii_art": "  ___ ___ ___  ___ _____ ___  ___ __  __ \n | _ ) __|   \\/ __|_   _/ _ \\| _ \\  \\/  |\n | _ \\ _|| |) \\__ \\ | || (_) |   / |\\/| |\n |___/___|___/|___/ |_| \\___/|_|_\\_|  |_|",
-            "link": "",
-            "about": ""
+            "about": "hit me up about anything crypto, web3, or tech",
+            "linkedin": "https://www.linkedin.com/in/akshatj27/",
+            "instagram": "https://www.instagram.com/akshat.1337/",
+            "website": "https://akshat.sh"
         },
         {
             "id": 10,
@@ -33,8 +36,9 @@
             "position": "Coordinator",
             "username": "trickastley",
             "ascii_art": "  _____ ___ ___ ___ _  __   _   ___ _____ _    _____   __\n |_   _| _ \\_ _/ __| |/ /  /_\\ / __|_   _| |  | __\\ \\ / /\n   | | |   /| | (__| ' <  / _ \\\\__ \\ | | | |__| _| \\ V / \n   |_| |_|_\\___\\___|_|\\_\\/_/ \\_\\___/ |_| |____|___| |_|  ",
-            "link": "",
-            "about": ""
+            "linkedin": "https://www.linkedin.com/in/satvik-saksena/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+            "about": "trickastley.\npart time dtu cs \nfull time design(er)",
+            "instagram": "https://www.instagram.com/satviksaksena/"
         },
         {
             "id": 11,
@@ -42,7 +46,6 @@
             "position": "Coordinator",
             "username": "CyC",
             "ascii_art": "   _____   _____ \n  / __\\ \\ / / __|\n | (__ \\ V / (__ \n  \\___| |_| \\___|",
-            "link": "",
             "about": ""
         },
         {
@@ -51,7 +54,6 @@
             "position": "Hacker",
             "username": "caffe!n",
             "ascii_art": "   ___   _   ___ ___ ___ _ _  _ \n  / __| /_\\ | __| __| __| | \\| |\n | (__ / _ \\| _|| _|| _||_| .` |\n  \\___/_/ \\_\\_| |_| |___(_)_|\\_|",
-            "link": "",
             "about": ""
         },
         {
@@ -60,8 +62,9 @@
             "position": "Hacker",
             "username": "yegnis",
             "ascii_art": " __   _____ ___ _  _ ___ ___ \n \\ \\ / / __/ __| \\| |_ _/ __|\n  \\ V /| _| (_ | .` || |\\__ \\\n   |_| |___\\___|_|\\_|___|___/",
-            "link": "",
-            "about": ""
+            "about": "First year CSE student\nI love to play video games & make racist jokes",
+            "linkedin": "https://www.linkedin.com/in/singeydorje/",
+            "instagram": "https://www.instagram.com/singey_dorje"
         },
         {
             "id": 14,
@@ -69,8 +72,10 @@
             "position": "Hacker",
             "username": "the_moon_guy",
             "ascii_art": "  __  __  ___   ___  _  _    ___ _   ___   __\n |  \\/  |/ _ \\ / _ \\| \\| |  / __| | | \\ \\ / /\n | |\\/| | (_) | (_) | .` | | (_ | |_| |\\ V / \n |_|  |_|\\___/ \\___/|_|\\_|  \\___|\\___/  |_|  ",
-            "link": "",
-            "about": ""
+            "linkedin": "https://linkedin.com/in/mayank-jangid-805393310",
+            "instagram": "www.instagram.com/the_moon_guy__/",
+            "github": "https://github.com/mayank-jangid-moon",
+            "about": "First Year CSE Student\nC >> Python\npwn is nOiCe"
         },
         {
             "id": 15,
@@ -78,17 +83,20 @@
             "position": "Hacker",
             "username": "mauray",
             "ascii_art": "  __  __   _  _   _ ___    ___   __\n |  \\/  | /_\\| | | | _ \\  /_\\ \\ / /\n | |\\/| |/ _ \\ |_| |   / / _ \\ V / \n |_|  |_/_/ \\_\\___/|_|_\\/_/ \\_\\_|  ",
-            "link": "",
-            "about": ""
+            "about": "First year CSE student\nLow level dev\nI use Arch and NeoVim, btw\nCTF boosts my adrenaline",
+            "github": "https://github.com/Mauray-Jain",
+            "instagram": "www.instagram.com/_maurayjain_/",
+            "linkedin": "https://www.linkedin.com/in/mauray-jain-826972335/"
         },
         {
             "id": 16,
             "name": "Arsh Abbas",
             "position": "Hacker",
             "username": "cha0s",
+            "linkedin": "https://www.linkedin.com/in/arsh-abbas-550800307/",
             "ascii_art": "   ___ _  _   _   __  ___ \n  / __| || | /_\\ /  \\/ __|\n | (__| __ |/ _ \\ () \\__ \\\n  \\___|_||_/_/ \\_\\__/|___/",
-            "link": "",
-            "about": ""
+            "about": "CSE first year\nalso called Osama",
+            "instagram": "https://instagram.com/arsh_abbas06"
         },
         {
             "id": 17,
@@ -96,7 +104,6 @@
             "position": "Hacker",
             "username": "g1ow",
             "ascii_art": "   ___ _  _____      __\n  / __/ |/ _ \\ \\    / /\n | (_ | | (_) \\ \\/\\/ / \n  \\___|_|\\___/ \\_/\\_/  ",
-            "link": "",
             "about": ""
         },
         {
@@ -105,9 +112,11 @@
             "position": "Hacker",
             "username": "benzo",
             "ascii_art": " ___ ___ _  _ _______  \n| _ ) __| \\| |_  / _ \\ \n| _ \\ _|| .` |/ / (_) |\n|___/___|_|\\_/___\\___/ ",
-            "link": "https://tusharr.xyz/",
-            "linkText": "Website",
-            "about": "First year EE Student\nHacker at EHAX.\n\n`Ye site mene banayi hai`"
+            "website": "https://tusharr.xyz/",
+            "instagram": "https://instagram.com/tushar_coder",
+            "linkedin": "https://linkedin.com/in/tusharsinghbisht",
+            "github": "https://github.com/tusharsinghbisht",
+            "about": "First year EE Student\nHacker at EHAX. can do anything.\n\n`Ye site mene banayi hai`"
         }
     ]
 }

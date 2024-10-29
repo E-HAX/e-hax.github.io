@@ -1,0 +1,36 @@
+
+.memberTabText {
+    font-size: 14px;
+  }
+  
+  .memberTabName {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .memberTabAbout {
+    font-size: 15px;
+    width: 100%;
+    text-wrap: wrap;
+  }
+  .memberTabPosition {
+    background-color: var(--text);
+    color: var(--background);
+    padding: 2px 5px;
+  }
+  .memberTabLink {
+    text-decoration: none;
+    margin-left: 7px;
+  }
+  .memberTabLink button {
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .memberTabSocials {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      justify-content: start;
+  }
