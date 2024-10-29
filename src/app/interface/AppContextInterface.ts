@@ -7,6 +7,7 @@ export interface MemberData {
     username: string;
     about: string;
     link: string;
+    linkText: string;
     ascii_art: string;
     position: string;
 }

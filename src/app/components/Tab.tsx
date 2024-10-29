@@ -4,7 +4,7 @@ import styles from "./Tab.module.css";
 import TabData from "../interface/TabData";
 import { AppContext } from "../context/AppContext";
 import Button from "./Button";
-
+import { FaLink } from "react-icons/fa";
 
 interface TabWindowProps {
   curr: TabData;
@@ -19,7 +19,6 @@ const TabWindow = ({ curr, tabs, setTabs }: TabWindowProps) => {
   }); // Initial position of the window
   const [isDragging, setIsDragging] = useState(false); // Whether the window is being dragged
   const [offset, setOffset] = useState({ x: 0, y: 0 }); // Offset of the mouse relative to the window
-
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const tabs_without_current: TabData[] = [];
@@ -62,19 +61,21 @@ const TabWindow = ({ curr, tabs, setTabs }: TabWindowProps) => {
 
   return (
     <div
-      style={window.innerWidth > 700 ? {
-        top: `${position.y}px`,
-        left: `${position.x}px`,
-      } : {}}
+      style={
+        window.innerWidth > 700
+          ? {
+              top: `${position.y}px`,
+              left: `${position.x}px`,
+            }
+          : {}
+      }
       onMouseLeave={() => setIsDragging(false)}
       className={styles.tab}
       onMouseMove={handleMouseMove}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
     >
-      <div
-        className={styles.tabTop}
-      >
+      <div className={styles.tabTop}>
         <h3 className={styles.tabHead}>{curr.title}</h3>
         <span className={styles.tabClose} onClick={closeTab}>
           x
@@ -82,41 +83,57 @@ const TabWindow = ({ curr, tabs, setTabs }: TabWindowProps) => {
       </div>
 
       <div className={styles.tabContent}>
-        {
-          curr.content ? curr.content : (
-            curr.member ? (
-              <>
-                <pre style={{ fontSize: "14px" }}>
-                  <code>
-                    {curr.member.ascii_art}
-                  </code>
-                </pre>
-                <br />
-                <p style={{ fontSize: "20px", fontWeight: "bold" }}>{`>>> ${curr.member.name}`}</p><br />
-                <p style={{ fontSize: "17px"}}>{`Position: ${curr.member.position}`}</p>
+        {curr.content ? (
+          curr.content
+        ) : curr.member ? (
+          <>
+            <pre style={{ fontSize: "14px" }}>
+              <code>
+                {curr.member.ascii_art}
                 <br />
                 <br />
-                <p>{curr.member.about}</p>
+                <p
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                    marginBottom: "5px",
+                  }}
+                >{`>>> ${curr.member.name}`}</p>
+                <p
+                  style={{ fontSize: "14px" }}
+                >{`Position: ${curr.member.position}`}</p>
                 <br />
                 <br />
-                <br />
-                {
-                  curr.member.link && (
-                    <a href={curr.member.link} target="__blank"><Button style={{ fontSize: "15px" }}>Know More</Button></a>
-                  )
-                }
-              </>
-          ) : ""
-          )
-        }
+                <p style={{ fontSize: "15px" }}>{curr.member.about}</p>
+              </code>
+            </pre>
+            <br />
+            <br />
+            {curr.member.link && (
+              <a href={curr.member.link} target="__blank" style={{ textDecoration: "none" }}>
+                <Button
+                  style={{
+                    fontSize: "15px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <FaLink size={18} style={{ marginRight: "5px" }} /> <span>{curr.member.linkText}</span>
+                </Button>
+              </a>
+            )}
+          </>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
 };
 
 const TabManager = () => {
-
-  const { tabs, setTabs } = useContext(AppContext)
+  const { tabs, setTabs } = useContext(AppContext);
 
   return (
     <>
