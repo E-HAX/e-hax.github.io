@@ -60,8 +60,20 @@
   }
   .navList {
     padding: 14px 0px;
-    background: rgba(18, 17, 17, 0.523);
-    backdrop-filter: blur(5px);
+    background: rgba(11, 10, 10, 0.523);
+    backdrop-filter: blur(3px);
+  }
+  .navbar {
+    position: relative;
+  }
+  .navbar::after {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: #01010167;
+    z-index: -1;
   }
 }
 @media only screen and (max-width: 450px) {
