@@ -17,7 +17,9 @@
             "position": "Coordinator",
             "username": "anonimbus",
             "ascii_art": "    _   _  _  ___  _  _ ___ __  __ ___ _   _ ___ \n   /_\\ | \\| |/ _ \\| \\| |_ _|  \\/  | _ ) | | / __|\n  / _ \\| .` | (_) | .` || || |\\/| | _ \\ |_| \\__ \\ \n /_/ \\_\\_|\\_|\\___/|_|\\_|___|_|  |_|___/\\___/|___/",
-            "about": ""
+            "about": "Pro CTF player\nWon many CTFs",
+            "instagram": "https://www.instagram.com/anonimbus31337/",
+            "linkedin": "https://www.linkedin.com/in/tarush-sonakya/"
         },
         {
             "id": 9,
@@ -39,14 +41,17 @@
             "linkedin": "https://www.linkedin.com/in/satvik-saksena/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
             "about": "trickastley.\npart time dtu cs \nfull time design(er)",
             "instagram": "https://www.instagram.com/satviksaksena/"
-        },
+        },tushar_coder
         {
             "id": 11,
             "name": "Kartik Vats",
             "position": "Coordinator",
             "username": "CyC",
             "ascii_art": "   _____   _____ \n  / __\\ \\ / / __|\n | (__ \\ V / (__ \n  \\___| |_| \\___|",
-            "about": ""
+            "about": "Second-year CSE student\nHit me up for anything code, cryptic, or chaotic \nlate-night CTF grinds >>",
+            "instagram": "https://www.instagram.com/k3tikvats/",
+            "linkedin": "https://www.linkedin.com/in/k3tikvats/", 
+            "discord": "https://discordapp.com/users/834341079015751681"
         },
         {
             "id": 12,
@@ -75,7 +80,7 @@
             "username": "the_moon_guy",
             "ascii_art": "  __  __  ___   ___  _  _    ___ _   ___   __\n |  \\/  |/ _ \\ / _ \\| \\| |  / __| | | \\ \\ / /\n | |\\/| | (_) | (_) | .` | | (_ | |_| |\\ V / \n |_|  |_|\\___/ \\___/|_|\\_|  \\___|\\___/  |_|  ",
             "linkedin": "https://linkedin.com/in/mayank-jangid-805393310",
-            "instagram": "www.instagram.com/the_moon_guy__/",
+            "instagram": "https://www.instagram.com/the_moon_guy__/",
             "github": "https://github.com/mayank-jangid-moon",
             "about": "First Year CSE Student\nC >> Python\npwn is nOiCe",
             "discord": "https://discord.com/users/920857705684537405"
