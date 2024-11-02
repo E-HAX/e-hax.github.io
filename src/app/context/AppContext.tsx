@@ -12,6 +12,8 @@ export const AppContextProvider = ({ children }: { children: React.ReactNode }) 
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
+        console.log("https://youtu.be/dQw4w9WgXcQ");
+        
         const controller = new AbortController()
         const { signal } = controller;
          
