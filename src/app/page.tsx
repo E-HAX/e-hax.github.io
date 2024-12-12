@@ -1,6 +1,7 @@
 import { FaDiscord } from "react-icons/fa";
 import Button from "./components/Button";
 import styles from "./page.module.css";
+import { GoAlertFill } from "react-icons/go";
 
 export default function Home() {
 
@@ -14,6 +15,14 @@ export default function Home() {
           <a href="https://discord.gg/ZahW64GeWB" target="__blank" className={styles.discordlink} draggable={false}>
           <Button className={styles.discordbtn}><FaDiscord size={25} /> Enter Discord!</Button>
           </a>
+          <div className={styles.recAlert}>
+            <div className={styles.recAlertlogo}>
+              <GoAlertFill fontSize={35} />
+            </div>
+            <div>
+              <h3><a href="https://chat.whatsapp.com/IBLzrx3MTvwJQOZ30WLyAU">Recruitement CTF on 12 Jan!!!</a></h3>
+            </div>
+          </div>
         </div>
 
         {/* <div className={styles.about}>

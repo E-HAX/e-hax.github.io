@@ -73,3 +73,34 @@
 .discordlink {
   text-decoration: none;
 }
+
+.recAlert {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 24px;
+  border: 2px solid var(--text);
+  background: var(--background);
+  padding: 10px;
+  text-align: center;
+}
+.recAlert a {
+  color: var(--text);
+}
+.recAlert h3 {
+  font-size: 18px;
+}
+
+.recAlertlogo {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .recAlertlogo {
+    margin: 0px;
+    margin-right: 15px;
+  }
+  .desc {
+    font-size: 18px;
+  }
+}
