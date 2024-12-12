@@ -28,7 +28,7 @@ export default function Home() {
               <GoAlertFill fontSize={35} color="#00ff04" />
             </div>
             <div>
-              <h3>Recruitement CTF on 12 Jan!!!</h3>
+              <h3>Recruitment CTF on 12 Jan!!!</h3>
             </div>
           </div>
         </a>
