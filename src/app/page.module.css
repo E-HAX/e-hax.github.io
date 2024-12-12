@@ -84,10 +84,11 @@
   padding: 10px;
   text-align: center;
 }
-.recAlert a {
+.recAlertLink {
   color: var(--text);
 }
 .recAlert h3 {
+  color: var(--text);
   font-size: 18px;
 }
 
