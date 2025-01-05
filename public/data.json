@@ -120,6 +120,19 @@
         },
         {
             "id": 18,
+            "name": "Stavya",
+            "position": "Hacker",
+            "username": "stapat",
+            "ascii_art": "  ___ _____ _   ___  _ _____ \n / __|_   _/_\\ | _ \\/_\\_   _|\n \\__ \\ | |/ _ \\|  _/ _ \\| |  \n |___/ |_/_/ \\_\\_|/_/ \\_\\_|  ",
+            "website": "https://tusharr.xyz/",
+            "instagram": "https://www.instagram.com/stapuutt1245",
+            "linkedin": "https://www.linkedin.com/in/stavya1245",
+            "github": "https://github.com/stapat1245>",
+            "discord": "https://discord.com/users/742340361892003860",
+            "about": "First year EP student\nprogrammer\ni joke\nforensics is lub"
+        },
+        {
+            "id": 19,
             "name": "Tushar",
             "position": "Hacker",
             "username": "benzo",
