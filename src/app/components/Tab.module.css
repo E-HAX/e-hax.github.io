@@ -41,13 +41,14 @@
 
 .tabTop {
   position: sticky;
-  background-color: #071807de;
+  background-color: #071807;
   /* background-color: #000000de; */
   top: 0;
   border-bottom: 2px solid var(--text);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 2;
   /* user-select: none; */
 }
 
