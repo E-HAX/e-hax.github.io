@@ -1,0 +1,46 @@
+.text {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.event {
+    border: 2px solid var(--text);
+    padding: 8px;
+    margin-bottom: 8px;
+    border-left-width: 5px;
+    position: relative;
+}
+.event::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: var(--text);
+    animation: slide 0.5s 1;
+}
+@keyframes slide {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+.event h4 {
+    font-size: 18px;
+}
+
+.event p {
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+.event a {
+    background: var(--text);
+    color: var(--background);
+    padding: 4px;
+    text-decoration: none;
+}

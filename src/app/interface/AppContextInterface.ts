@@ -14,8 +14,17 @@ export interface MemberData {
     github: string;
     discord: string;
 }
+
+export interface EventData {
+    name: string
+    about: string
+    link: string
+    date: string
+}
+
 export interface SiteData {
     members: MemberData[]
+    events: EventData[]
 }
 // interface BlogData {}
 // interface EventData {}

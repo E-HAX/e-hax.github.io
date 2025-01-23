@@ -8,7 +8,7 @@ export const AppContext = createContext<AppContextInterface>({} as AppContextInt
 
 export const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [tabs, setTabs] = useState<TabData[]>([]);
-    const [data, setData] = useState<SiteData>({ members: [] } as SiteData);
+    const [data, setData] = useState<SiteData>({ members: [], events: [] } as SiteData);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {

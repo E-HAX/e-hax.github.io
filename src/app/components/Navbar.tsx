@@ -59,7 +59,7 @@ const Navbar = () => {
           <li
             onClick={() => setCurrTab("/team", 2)}
             className={
-              tabs.length != 0 && (tabs[tabs.length - 1].id == 2 || (tabs[tabs.length - 1].id <= 20 && tabs[tabs.length - 1].id>= 7))
+              tabs.length != 0 && (tabs[tabs.length - 1].id == 2 || (tabs[tabs.length - 1].id <= 21 && tabs[tabs.length - 1].id>= 7))
                 ? styles.navItemActive
                 : styles.navItem
             }
