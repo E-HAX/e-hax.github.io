@@ -29,7 +29,7 @@ export default function Home() {
               <GoAlertFill fontSize={35} color="#00ff04" />
             </div>
             <div>
-              <h3>EHAX CTF in Invictus'25 !!!</h3>
+              <h3>{"EHAX CTF in Invictus'25 !!!"}</h3>
             </div>
           </div>
         </a>
