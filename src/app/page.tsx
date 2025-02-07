@@ -1,6 +1,7 @@
 import { FaDiscord } from "react-icons/fa";
 import Button from "./components/Button";
 import styles from "./page.module.css";
+import { GoAlertFill } from "react-icons/go";
 // import { GoAlertFill } from "react-icons/go";
 
 export default function Home() {
@@ -21,17 +22,17 @@ export default function Home() {
             <FaDiscord size={25} /> Enter Discord!
           </Button>
         </a>
-
-        {/* <div className={styles.recAlertLink}>
+        
+        <a href="https://unstop.com/p/ehax-ctf-invictus-2025-technical-council-dtu-1392873" target="__blank" className={styles.recAlertLink}>
           <div className={styles.recAlert}>
             <div className={styles.recAlertlogo}>
               <GoAlertFill fontSize={35} color="#00ff04" />
             </div>
             <div>
-              <h3>Recruitment CTF on 12 Jan!!!</h3>
+              <h3>EHAX CTF in Invictus'25 !!!</h3>
             </div>
           </div>
-        </div> */}
+        </a>
       </div>
 
       {/* <div className={styles.about}>

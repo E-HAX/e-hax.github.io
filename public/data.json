@@ -156,6 +156,18 @@
     ],
     "events": [
         {
+            "name": "EHAX CTF",
+            "about": "A CTF competition organised by EHAX in Invictus'25 DTU's mega tech fest",
+            "link": "https://unstop.com/p/ehax-ctf-invictus-2025-technical-council-dtu-1392873",
+            "date": "17 Feb, 2025"
+        },
+        {
+            "name": "Capture the Real Flag",
+            "about": "A thrilling and challenging real life hacking challenges based treasure hunt game in Invictus'25, where players have to search for real clues across DTU's campus to win the game",
+            "link": "https://unstop.com/competitions/capture-the-real-flags-invictus-2025-dtu-new-delhi-1392938",
+            "date": "15 Feb, 2025"
+        },
+        {
             "name": "IICON'2025",
             "about": "IICON is an annual event held in India, organised by professionals from intelligence and investigation domains.",
             "link": "https://iicon.co.in/",
