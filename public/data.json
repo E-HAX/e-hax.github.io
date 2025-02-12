@@ -179,5 +179,11 @@
             "about":"a cybercrime awareness workshop organised by Delhi police",
             "link": "https://www.linkedin.com/posts/ehax_ehax-cybersecurity-delhipolice-activity-7284591819919695872-v1RH?utm_source=share&utm_medium=member_desktop"
         }
+    ],
+    "blogs": [
+        {
+            "name": "BITSCTF 2025 writeups",
+            "link": "https://github.com/E-HAX/writeups/tree/main/2025/bitsctf"
+        }
     ]
 }

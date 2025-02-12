@@ -22,9 +22,17 @@ export interface EventData {
     date: string
 }
 
+
+export interface BlogsData {
+    name: string
+    about: string
+    link: string
+}
+
 export interface SiteData {
     members: MemberData[]
     events: EventData[]
+    blogs: BlogsData[]
 }
 // interface BlogData {}
 // interface EventData {}
