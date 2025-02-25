@@ -44,3 +44,30 @@
     padding: 4px;
     text-decoration: none;
 }
+
+
+.blogTop {
+    color: var(--background);
+    background: var(--text);
+    padding: 8px;
+    margin-bottom: 18px;
+    position: relative;
+}
+.blogTop p {
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+.blogTop a {
+    padding: 5px 8px;
+    text-decoration: none;
+    background: var(--background);
+    color: var(--text);
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.blogTop:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}

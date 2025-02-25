@@ -182,6 +182,10 @@
     ],
     "blogs": [
         {
+            "name": "KASHICTF 2025 writeups",
+            "link": "https://github.com/E-HAX/writeups/tree/main/2025/kashictf"
+        },
+        {
             "name": "BITSCTF 2025 writeups",
             "link": "https://github.com/E-HAX/writeups/tree/main/2025/bitsctf"
         }
