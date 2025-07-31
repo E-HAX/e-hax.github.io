@@ -23,13 +23,13 @@ export default function Home() {
           </Button>
         </a>
         
-        <a href="https://www.linkedin.com/posts/ehax_pentathon-2025-rank-12-team-ehax-dtu-activity-7326674826369077248-cPuz?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE33SAkBH8R2J2iAp96SOdAxTpRScWDd1Y0" target="__blank" className={styles.recAlertLink}>
+        <a href="https://chat.whatsapp.com/FkkspmOFoKPJ99Vl9WjBgA" target="__blank" className={styles.recAlertLink}>
           <div className={styles.recAlert}>
             <div className={styles.recAlertlogo}>
               <GoAlertFill fontSize={35} color="#00ff04" />
             </div>
             <div>
-              <h3>{"EHAX AIR 12 at Pentathon !!!"}</h3>
+              <h3>{"Join EHAX, start hacking !!!"}</h3>
             </div>
           </div>
         </a>

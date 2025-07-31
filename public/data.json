@@ -3,10 +3,10 @@
         {
             "id": 7,
             "name": "Anuj Rawat",
-            "position": "President",
+            "position": "Alumni",
             "username": "tazer",
             "ascii_art": "  _____ _    _______ ___ \n |_   _/_\\  |_  / __| _ \\ \n   | |/ _ \\  / /| _||   /\n   |_/_/ \\_\\/___|___|_|_\\",
-            "about": "Final year EE stud\ni lub anime\nweb ctf <3",
+            "about": "graduated\ni lub anime\nweb ctf <3",
             "instagram": "https://www.instagram.com/anujrawatazer/",
             "linkedin": "https://www.linkedin.com/in/tazer/",
             "website": "https://ajtazer.xyz/"
@@ -14,7 +14,7 @@
         {
             "id": 8,
             "name": "Tarush",
-            "position": "Coordinator",
+            "position": "President",
             "username": "anonimbus",
             "ascii_art": "    _   _  _  ___  _  _ ___ __  __ ___ _   _ ___ \n   /_\\ | \\| |/ _ \\| \\| |_ _|  \\/  | _ ) | | / __|\n  / _ \\| .` | (_) | .` || || |\\/| | _ \\ |_| \\__ \\ \n /_/ \\_\\_|\\_|\\___/|_|\\_|___|_|  |_|___/\\___/|___/",
             "about": "Pro CTF player\nWon many CTFs",
@@ -22,36 +22,26 @@
             "linkedin": "https://www.linkedin.com/in/tarush-sonakya/"
         },
         {
+            "id": 11,
+            "name": "Kartik Vats",
+            "position": "Vice President",
+            "username": "CyC",
+            "ascii_art": "   _____   _____ \n  / __\\ \\ / / __|\n | (__ \\ V / (__ \n  \\___| |_| \\___|",
+            "about": "CSE student\nHit me up for anything code, cryptic, or chaotic \nlate-night CTF grinds >>",
+            "instagram": "https://www.instagram.com/k3tikvats/",
+            "linkedin": "https://www.linkedin.com/in/k3tikvats/", 
+            "discord": "https://discordapp.com/users/834341079015751681"
+        },
+        {
             "id": 9,
             "name": "Akshat Jain",
-            "position": "Coordinator",
+            "position": "Treasurer",
             "username": "bedstorm",
             "ascii_art": "  ___ ___ ___  ___ _____ ___  ___ __  __ \n | _ ) __|   \\/ __|_   _/ _ \\| _ \\  \\/  |\n | _ \\ _|| |) \\__ \\ | || (_) |   / |\\/| |\n |___/___|___/|___/ |_| \\___/|_|_\\_|  |_|",
             "about": "hit me up about anything crypto, web3, or tech",
             "linkedin": "https://www.linkedin.com/in/akshatj27/",
             "instagram": "https://www.instagram.com/akshat.1337/",
             "website": "https://akshat.sh"
-        },
-        {
-            "id": 10,
-            "name": "Satvik Saksena",
-            "position": "Coordinator",
-            "username": "trickastley",
-            "ascii_art": "  _____ ___ ___ ___ _  __   _   ___ _____ _    _____   __\n |_   _| _ \\_ _/ __| |/ /  /_\\ / __|_   _| |  | __\\ \\ / /\n   | | |   /| | (__| ' <  / _ \\\\__ \\ | | | |__| _| \\ V / \n   |_| |_|_\\___\\___|_|\\_\\/_/ \\_\\___/ |_| |____|___| |_|  ",
-            "linkedin": "https://www.linkedin.com/in/satvik-saksena/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-            "about": "trickastley.\npart time dtu cs \nfull time design(er)",
-            "instagram": "https://www.instagram.com/satviksaksena/"
-        },
-        {
-            "id": 11,
-            "name": "Kartik Vats",
-            "position": "Coordinator",
-            "username": "CyC",
-            "ascii_art": "   _____   _____ \n  / __\\ \\ / / __|\n | (__ \\ V / (__ \n  \\___| |_| \\___|",
-            "about": "Second-year CSE student\nHit me up for anything code, cryptic, or chaotic \nlate-night CTF grinds >>",
-            "instagram": "https://www.instagram.com/k3tikvats/",
-            "linkedin": "https://www.linkedin.com/in/k3tikvats/", 
-            "discord": "https://discordapp.com/users/834341079015751681"
         },
         {
             "id": 12,
@@ -63,17 +53,6 @@
             "instagram": "https://instagram.com/kaunhardik"
         },
         {
-            "id": 13,
-            "name": "Singey",
-            "position": "Hacker",
-            "username": "yegnis",
-            "ascii_art": " __   _____ ___ _  _ ___ ___ \n \\ \\ / / __/ __| \\| |_ _/ __|\n  \\ V /| _| (_ | .` || |\\__ \\\n   |_| |___\\___|_|\\_|___|___/",
-            "about": "First year CSE student\nI love to play video games & make racist jokes",
-            "linkedin": "https://www.linkedin.com/in/singeydorje/",
-            "instagram": "https://www.instagram.com/singey_dorje",
-            "discord": "https://discord.com/users/813983048374681621"
-        },
-        {
             "id": 14,
             "name": "Mayank Jangid",
             "position": "Hacker",
@@ -82,7 +61,7 @@
             "linkedin": "https://linkedin.com/in/mayank-jangid-805393310",
             "instagram": "https://www.instagram.com/the_moon_guy__/",
             "github": "https://github.com/mayank-jangid-moon",
-            "about": "First Year CSE Student\nC >> Python\npwn is nOiCe",
+            "about": "CSE'28\nC >> Python\npwn is nOiCe\nbtw i do aiml also",
             "discord": "https://discord.com/users/920857705684537405"
         },
         {
@@ -91,7 +70,7 @@
             "position": "Hacker",
             "username": "mauray",
             "ascii_art": "  __  __   _  _   _ ___    ___   __\n |  \\/  | /_\\| | | | _ \\  /_\\ \\ / /\n | |\\/| |/ _ \\ |_| |   / / _ \\ V / \n |_|  |_/_/ \\_\\___/|_|_\\/_/ \\_\\_|  ",
-            "about": "First year CSE student\nLow level dev\nI use Arch and NeoVim, btw\nCTF boosts my adrenaline",
+            "about": "CSE'28\nLow level dev\nI use Arch and NeoVim, btw\nCTF boosts my adrenaline",
             "github": "https://github.com/Mauray-Jain",
             "instagram": "www.instagram.com/_maurayjain_/",
             "linkedin": "https://www.linkedin.com/in/mauray-jain-826972335/",
@@ -104,7 +83,7 @@
             "username": "cha0s",
             "linkedin": "https://www.linkedin.com/in/arsh-abbas-550800307/",
             "ascii_art": "   ___ _  _   _   __  ___ \n  / __| || | /_\\ /  \\/ __|\n | (__| __ |/ _ \\ () \\__ \\\n  \\___|_||_/_/ \\_\\__/|___/",
-            "about": "first year CSE Student at IIT Bawana\nknown as `osamabhundladen` in ehax\nbakchodi >>",
+            "about": "CSE'28\nDomains: AI-ML, CV, AI security\nSkills: Billi Paalak 😼, ChatGPT molester",
             "instagram": "https://instagram.com/arsh_abbas06",
             "discord": "https://discord.com/users/813293734053019680"
         },
@@ -114,7 +93,7 @@
             "position": "Hacker",
             "username": "g1ow",
             "ascii_art": "   ___ _  _____      __\n  / __/ |/ _ \\ \\    / /\n | (_ | | (_) \\ \\/\\/ / \n  \\___|_|\\___/ \\_/\\_/  ",
-            "about": "Proud representative of all the Queens in Cybersec\n\nFirst year CSE Girlie\nVoice of Ehax, hit me up for all your announcements and communication needs\nI will get the flag no matter what - either by solving or ~black magic~",
+            "about": "Proud representative of all the Queens in Cybersec\n\nCSE'28 Girlie\nVoice of Ehax, hit me up for all your announcements and communication needs\nI will get the flag no matter what - either by solving or ~black magic~",
             "discord": "https://discordapp.com/users/975408524270121000",
             "github": "https://github.com/ArnabiDutta"
         },
@@ -128,18 +107,18 @@
             "linkedin": "https://www.linkedin.com/in/stavya1245",
             "github": "https://github.com/stapat1245",
             "discord": "https://discord.com/users/742340361892003860",
-            "about": "First year EP student\nprogrammer\ni joke\nforensics is lub"
+            "about": "EP'28\npro gamer\ni joke\nforensics is lub"
         },
         {
             "id": 19,
             "name": "Aaradhya",
             "position": "Hacker",
-            "username": "franky",
+            "username": "frankhisss",
             "ascii_art": "  ___ ___    _   _  _ _  ____   __\n | __| _ \\  /_\\ | \\| | |/ /\\ \\ / /\n | _||   / / _ \\| .` | ' <  \\ V / \n |_| |_|_\\/_/ \\_\\_|\\_|_|\\_\\  |_|  ",
             "instagram": "https://www.instagram.com/frankhisssssssssss/",
             "github": "https://github.com/FrankTheSssnake",
             "discord": "https://discord.com/users/1253543268726341662",
-            "about": "First year SE student\nI am a sanke\nLoves nan-khatai"
+            "about": "SE'28 student\ni do system programming and rev\ni like rust\ni use arch btw"
         },
         {
             "id": 20,
@@ -151,7 +130,7 @@
             "instagram": "https://instagram.com/tushar_coder",
             "linkedin": "https://linkedin.com/in/tusharsinghbisht",
             "github": "https://github.com/tusharsinghbisht",
-            "about": "First year EE Student\nSpiderman (web developer)\nprogrammer. can do anything\n\n`Ye site mene banayi hai`"
+            "about": "EE'28\nweb & networking\nfullstax dev\nprogrammer. can do anything\n`Ye site mene banayi hai`"
         }
     ],
     "events": [
