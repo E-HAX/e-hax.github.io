@@ -13,7 +13,7 @@ export default function Home() {
           the official ethical hacking and cybersecurity society of DTU
         </p>
         <a
-          href="https://discord.gg/ZahW64GeWB"
+          href="https://discord.gg/agWvd2NYST"
           target="__blank"
           className={styles.discordlink}
           draggable={false}
@@ -23,16 +23,16 @@ export default function Home() {
           </Button>
         </a>
         
-        <a href="https://chat.whatsapp.com/FkkspmOFoKPJ99Vl9WjBgA" target="__blank" className={styles.recAlertLink}>
+        {/* <a href="" target="__blank" className={styles.recAlertLink}>
           <div className={styles.recAlert}>
             <div className={styles.recAlertlogo}>
               <GoAlertFill fontSize={35} color="#00ff04" />
             </div>
             <div>
-              <h3>{"Join EHAX, start hacking !!!"}</h3>
+              <h3>alert here</h3>
             </div>
           </div>
-        </a>
+        </a> */}
       </div>
 
       {/* <div className={styles.about}>
