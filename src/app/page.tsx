@@ -1,7 +1,6 @@
 import { FaDiscord } from "react-icons/fa";
 import Button from "./components/Button";
 import styles from "./page.module.css";
-import { GoAlertFill } from "react-icons/go";
 // import { GoAlertFill } from "react-icons/go";
 
 export default function Home() {
