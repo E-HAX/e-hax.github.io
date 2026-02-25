@@ -1,6 +1,7 @@
 import { FaDiscord } from "react-icons/fa";
 import Button from "./components/Button";
 import styles from "./page.module.css";
+import { GoAlertFill } from "react-icons/go";
 // import { GoAlertFill } from "react-icons/go";
 
 export default function Home() {
@@ -22,16 +23,16 @@ export default function Home() {
           </Button>
         </a>
         
-        {/* <a href="" target="__blank" className={styles.recAlertLink}>
+        <a href="https://ctf.ehax.in/" target="__blank" className={styles.recAlertLink}>
           <div className={styles.recAlert}>
             <div className={styles.recAlertlogo}>
               <GoAlertFill fontSize={35} color="#00ff04" />
             </div>
             <div>
-              <h3>alert here</h3>
+              <h3>EHAX CTF 2026 is here</h3>
             </div>
           </div>
-        </a> */}
+        </a>
       </div>
 
       {/* <div className={styles.about}>

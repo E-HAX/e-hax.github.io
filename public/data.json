@@ -136,7 +136,13 @@
     ],
     "events": [
         {
-            "name": "EHAX CTF",
+            "name": "EHAX CTF 2026",
+            "about": "Our flagship annual CTF event",
+            "link": "https://ctf.ehax.in/",
+            "date": "28 Feb, 2026"
+        },
+        {
+            "name": "EHAX CTF 2025",
             "about": "A CTF competition organised by EHAX in Invictus'25 DTU's mega tech fest",
             "link": "https://unstop.com/p/ehax-ctf-invictus-2025-technical-council-dtu-1392873",
             "date": "17 Feb, 2025"
