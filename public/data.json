@@ -33,15 +33,6 @@
             "instagram": "https://www.instagram.com/akshat.1337/",
             "website": "https://akshat.sh"
         },
-        // {
-        //     "id": 12,
-        //     "name": "Hardik",
-        //     "position": "Hacker",
-        //     "username": "caffe!n",
-        //     "ascii_art": "   ___   _   ___ ___ ___ _ _  _ \n  / __| /_\\ | __| __| __| | \\| |\n | (__ / _ \\| _|| _|| _||_| .` |\n  \\___/_/ \\_\\_| |_| |___(_)_|\\_|",
-        //     "about": "batman at ehax",
-        //     "instagram": "https://instagram.com/kaunhardik"
-        // },
         {
             "id": 14,
             "name": "Mayank Jangid",
@@ -99,17 +90,6 @@
             "discord": "https://discord.com/users/742340361892003860",
             "about": "EP'28\npro gamer\ni joke\nforensics is lub"
         },
-        // {
-        //     "id": 19,
-        //     "name": "Aaradhya",
-        //     "position": "Hacker",
-        //     "username": "frankhisss",
-        //     "ascii_art": "  ___ ___    _   _  _ _  ____   __\n | __| _ \\  /_\\ | \\| | |/ /\\ \\ / /\n | _||   / / _ \\| .` | ' <  \\ V / \n |_| |_|_\\/_/ \\_\\_|\\_|_|\\_\\  |_|  ",
-        //     "instagram": "https://www.instagram.com/frankhisssssssssss/",
-        //     "github": "https://github.com/FrankTheSssnake",
-        //     "discord": "https://discord.com/users/1253543268726341662",
-        //     "about": "SE'28 student\ni do system programming and rev\ni like rust\ni use arch btw"
-        // },
         {
             "id": 20,
             "name": "Tushar",
@@ -122,18 +102,6 @@
             "github": "https://github.com/tusharsinghbisht",
             "about": "EE'28\nweb & networking\nfullstax dev\nprogrammer. can do anything\n`Ye site mene banayi hai`"
         },
-        // {
-        //     "id": 21,
-        //     "name": "Tushar",
-        //     "position": "Hacker",
-        //     "username": "benzo",
-        //     "ascii_art": " ___ ___ _  _ _______  \n| _ ) __| \\| |_  / _ \\ \n| _ \\ _|| .` |/ / (_) |\n|___/___|_|\\_/___\\___/ ",
-        //     "website": "https://tusharr.xyz/",
-        //     "instagram": "https://instagram.com/tushar_coder",
-        //     "linkedin": "https://linkedin.com/in/tusharsinghbisht",
-        //     "github": "https://github.com/tusharsinghbisht",
-        //     "about": "EE'28\nweb & networking\nfullstax dev\nprogrammer. can do anything\n`Ye site mene banayi hai`"
-        // },
         {
             "id": 7,
             "name": "Anuj Rawat",
