@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHAX Collective - Research. Exploit. Secure. Repeat.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <nav class="navbar" id="mainNavbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a class="logo" data-text="EHAX">EHAX</a>
+                <div class="nav-links">
+                    <a href="#about" class="active">ABOUT</a>
+                    <a href="#domains">DOMAINS</a>
+                    <a href="#council">COUNCIL</a>
+                    <a href="#achievements">ACHIEVEMENTS</a>
+                    <a href="#contact">CONTACT</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <a href="#" target="_blank" class="btn-primary">
+                    <span class="material-symbols-outlined">forum</span>
+                    DISCORD
+                </a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#about">ABOUT</a>
+            <a href="#domains">DOMAINS</a>
+            <a href="#council">COUNCIL</a>
+            <a href="#achievements">ACHIEVEMENTS</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-bg-shapes">
+                <div class="floating-shape shape-1"></div>
+                <div class="floating-shape shape-2"></div>
+                <div class="floating-shape shape-3"></div>
+                <div class="floating-shape shape-4"></div>
+                <div class="floating-shape shape-5"></div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-3d-scene">
+                    <div class="hero-logo-wrapper" id="heroLogo3D">
+                        <div class="hero-logo-3d">
+                            <div class="logo-face logo-front">
+                                <img src="./logo.png" alt="EHAX Logo" class="hero-logo-img">
+                            </div>
+                            <div class="logo-face logo-back">
+                                <img src="./logo.png" alt="EHAX Logo" class="hero-logo-img">
+                            </div>
+                            <div class="logo-face logo-left"></div>
+                            <div class="logo-face logo-right"></div>
+                            <div class="logo-face logo-top"></div>
+                            <div class="logo-face logo-bottom"></div>
+                        </div>
+                        <div class="logo-glow"></div>
+                        <div class="logo-ring ring-1"></div>
+                        <div class="logo-ring ring-2"></div>
+                        <div class="logo-ring ring-3"></div>
+                    </div>
+                </div>
+
+                <div class="hero-text-block">
+                    <div class="glitch-wrapper">
+                        <h1 class="glitch" data-text="CYBERSECURITY">CYBERSECURITY</h1>
+                    </div>
+                    <p class="hero-subtitle">
+                        <span class="typing-text">EHAX is a cybersecurity collective of Delhi Technological University</span>
+                        <span class="cursor">_</span>
+                    </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat" data-value="50">
+                            <span class="stat-num">0</span>
+                            <span class="stat-label">CTFs Won</span>
+                        </div>
+                        <div class="hero-stat" data-value="120">
+                            <span class="stat-num">0</span>
+                            <span class="stat-label">Members</span>
+                        </div>
+                        <div class="hero-stat" data-value="8">
+                            <span class="stat-num">0</span>
+                            <span class="stat-label">Years Active</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn-3d">
+                            <span>Explore</span>
+                            <span class="material-symbols-outlined">arrow_downward</span>
+                        </a>
+                        <a href="#contact" class="btn-glass">
+                            <span class="material-symbols-outlined">terminal</span>
+                            <span>Join EHAX</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>SCROLL</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">01</span>
+                <div class="section-line"></div>
+                <span class="section-label">ABOUT EHAX</span>
+            </div>
+            <div class="about-grid">
+                <div class="about-left">
+                    <h2 class="section-title reveal-text">Technical<br>Directive</h2>
+                    <div class="about-stats">
+                        <div class="about-stat-card">
+                            <span class="about-stat-num">15+</span>
+                            <span class="about-stat-label">CVEs Found</span>
+                        </div>
+                        <div class="about-stat-card">
+                            <span class="about-stat-num">30+</span>
+                            <span class="about-stat-label">Workshops</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <p class="about-desc">
+                        Our collective operates at the intersection of theoretical research and practical exploitation. We focus on dismantling complex systems, analyzing proprietary protocols, and developing novel attack vectors that challenge current security paradigms.
+                    </p>
+                    <div class="about-cards">
+                        <div class="about-card" data-tilt>
+                            <div class="about-card-icon">
+                                <span class="material-symbols-outlined">bug_report</span>
+                            </div>
+                            <h4>Vulnerability Research</h4>
+                            <p>Deep-dive analysis into kernel space, browser engines, and hypervisors seeking 0-day flaws.</p>
+                        </div>
+                        <div class="about-card" data-tilt>
+                            <div class="about-card-icon">
+                                <span class="material-symbols-outlined">memory</span>
+                            </div>
+                            <h4>Exploit Engineering</h4>
+                            <p>Crafting reliable primitives and weaponizing theoretical vulnerabilities into functional proofs of concept.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Domains Section -->
+        <section id="domains" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">02</span>
+                <div class="section-line"></div>
+                <span class="section-label">DOMAINS</span>
+            </div>
+            <h2 class="section-title reveal-text">We Specialize In</h2>
+            <div class="domains-grid">
+                <div class="domain-card" data-tilt>
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <span class="material-symbols-outlined domain-icon">language</span>
+                            <h4>Web Exploitation</h4>
+                        </div>
+                        <div class="domain-card-back">
+                            <p>SQL injection, XSS, SSRF, and advanced web attack vectors</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-card" data-tilt>
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <span class="material-symbols-outlined domain-icon">terminal</span>
+                            <h4>Binary Exploitation</h4>
+                        </div>
+                        <div class="domain-card-back">
+                            <p>Buffer overflows, ROP chains, heap exploitation techniques</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-card" data-tilt>
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <span class="material-symbols-outlined domain-icon">search</span>
+                            <h4>Reverse Engineering</h4>
+                        </div>
+                        <div class="domain-card-back">
+                            <p>Malware analysis, firmware reversing, protocol analysis</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-card" data-tilt>
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <span class="material-symbols-outlined domain-icon">key</span>
+                            <h4>Cryptography</h4>
+                        </div>
+                        <div class="domain-card-back">
+                            <p>Applied crypto, cryptanalysis, post-quantum research</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-card" data-tilt>
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <span class="material-symbols-outlined domain-icon">router</span>
+                            <h4>Hardware / IoT</h4>
+                        </div>
+                        <div class="domain-card-back">
+                            <p>JTAG debugging, firmware extraction, side-channel attacks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-card" data-tilt>
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <span class="material-symbols-outlined domain-icon">cloud</span>
+                            <h4>Cloud Infrastructure</h4>
+                        </div>
+                        <div class="domain-card-back">
+                            <p>AWS/GCP security, container escapes, privilege escalation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-card" data-tilt>
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <span class="material-symbols-outlined domain-icon">smartphone</span>
+                            <h4>Mobile Security</h4>
+                        </div>
+                        <div class="domain-card-back">
+                            <p>Android/iOS reversing, app vulnerability research</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="domain-card" data-tilt>
+                    <div class="domain-card-inner">
+                        <div class="domain-card-front">
+                            <span class="material-symbols-outlined domain-icon">shield</span>
+                            <h4>Offensive Tooling</h4>
+                        </div>
+                        <div class="domain-card-back">
+                            <p>Custom C2 frameworks, exploit development, red team ops</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="council" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">03</span>
+                <div class="section-line"></div>
+                <span class="section-label">TEAM</span>
+            </div>
+            <h2 class="section-title reveal-text">Council Members</h2>
+            <div class="team-grid">
+                <div class="team-card" data-tilt>
+                    <div class="team-card-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuASYuDGw3GocDVldkKZxkwJ8qXd_ucHYT-Kkbxic2QrH5Nt5za3PoWEMCJPh-BthbiB0G4cBfYQrcBixrC5iysnY-Q_J_EAZK9rD7h_Dxd9LJGKAyVInTN8sut8THuJJbQUKOdFt3A7KWvA4N-ntgS7Yd0JGRPIfer6Bj387lGzaMoVU7z80rIfYyJNYnoT9oI8_tsrgtforn3665xeQ7OSGZyBZ_Mzhf_Cqj1WmqpfbBolw2J2I8djrnvUJJ1TwlJS5zOSuPtzAg" alt="Alex Rivera">
+                        <div class="team-card-overlay"></div>
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Alex Rivera</h4>
+                        <span class="team-role">Lead Researcher</span>
+                        <span class="team-handle">@null_pointer</span>
+                        <span class="team-skills">Binary Exploitation &bull; Kernel</span>
+                    </div>
+                </div>
+                <div class="team-card" data-tilt>
+                    <div class="team-card-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZSQD5XXcKNxlojMhVlCgp8T6i-gqUrPmvqSRgDEbbeHIwfHSCOx3Yu7Na_T-V1BFGJ5OZp16udHHkX6QexPt3zQ9gib6jBJcDBbu-Khe8DlFtoitL9MmgNx8YFjWuOfX6TvVTW34t9PNq3N7ghzViSKYlznlOU6rPwed0IdfogKkHsnH-JPyPx6XoDRdcHo80oaIRwASZ2tHtEm2GfJmBTZNLrTDFbCd7EoPHiUGNTBzR5i91UtDFIVMsIPRtUmwkzuS4ZzmWMw" alt="Marcus Chen">
+                        <div class="team-card-overlay"></div>
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Marcus Chen</h4>
+                        <span class="team-role">Malware Architect</span>
+                        <span class="team-handle">@heap_fengshui</span>
+                        <span class="team-skills">Reverse Engineering &bull; Malware</span>
+                    </div>
+                </div>
+                <div class="team-card" data-tilt>
+                    <div class="team-card-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfb8bDioIWpoVkFJKphNh9Wz7Pcm-6Js7DiD8GJyETFN6XhZ0mzSFw1s92EV8n-P6TbydrYQ1Wgn2cnkiI4gxoPAPGnWow4Erdibt84wO7jmWJP0_jd03ld09y6_pH4DIGSQhv0Xyg6aNBAkuBtjmpYH3ZW7VuwKCT3gn3z7KXFuMp5BCdTAliJ9Pw3uoSx8Sfgs9B0rDMHEbBpYaT6pdc4vuhu5dZeqC9hJQPBpwajyfY5ZUgQg7JCGw4MZHfmOPUj8DIWmcl-w" alt="Sarah Jenkins">
+                        <div class="team-card-overlay"></div>
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Sarah Jenkins</h4>
+                        <span class="team-role">AppSec Director</span>
+                        <span class="team-handle">@xss_vector</span>
+                        <span class="team-skills">Web Exploitation &bull; Cloud Sec</span>
+                    </div>
+                </div>
+                <div class="team-card" data-tilt>
+                    <div class="team-card-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCEGtrkfOqnhAXSF3BRaWZGNFvi9I3T1o62K7wSzfb2F_9a1JJpTs8rT4A2i1I1fDOpL_zmJpZmfTeiUr_Qn2J_h9J856IABvHtWElgp7Sd1YqAxcVCgMmvH0eGhMywXpln9MRNKJehP_bKFDNQzBu8fms32PPmlcI0QOnzf5ols0mW4RmdBHjPfOZUnPCAuiLOnCVESiQwT1Sga9vGGb0Tu2tT1Y7ncKWXK9hk4dPO788xntuyvnrpuuWH0RsI_Aqas5GKDocpg" alt="Elena Volkov">
+                        <div class="team-card-overlay"></div>
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Elena Volkov</h4>
+                        <span class="team-role">Crypto Lead</span>
+                        <span class="team-handle">@crypto_panic</span>
+                        <span class="team-skills">Applied Cryptography &bull; Math</span>
+                    </div>
+                </div>
+                <div class="team-card" data-tilt>
+                    <div class="team-card-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10n2itL1C57M6BJP6ZKqZPFlBlFOFmYMkFn1FE1wIzW2kQ9IQgw8R7upcEq4Ni0pcX6p3I4jT5O277vhza0yRAdf16CuYZLmLkNc3e6Nq91a-FDGry8yc5tToU8pGn1coSFi7_Gl2IAT-VUVaEGtmhb1IzxzOpBlu3u2iaHH4o-pmBacE-XbYwt0NZj4EQyFCH83Z4sBNL10e1sxQdskx208kX5D824HGBpniDtvn30HkP4vh1atufQISSE0f-XBBdGqY386Xkg" alt="David Thorne">
+                        <div class="team-card-overlay"></div>
+                    </div>
+                    <div class="team-card-info">
+                        <h4>David Thorne</h4>
+                        <span class="team-role">Hardware Specialist</span>
+                        <span class="team-handle">@jtag_junkie</span>
+                        <span class="team-skills">Hardware &bull; IoT Internals</span>
+                    </div>
+                </div>
+                <div class="team-card" data-tilt>
+                    <div class="team-card-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuChzxNM7hBTu2HupZl2GoqZuvkKpBfOSUJmwtVaC7ZpxCetT497GLSefQHTvqjJq7Do8Z8UocGTJXRvtWb8KLvFcleaL4dhMms1BYPVisvHL4v7Ht9tNTcmLnlaH8B-R3Wl7SVO9DFKhaart2GS1d__g6hLZoCjUuZKmBUUDIunNE2vFzmy3d6HnN4yumoRBdGB-KodW-OfnovkT3MxCajRGP4er61gGV_nTCjYKnMNfibBqRMOe2FQiEANWo5KKJgp6LZ2iHUi6A" alt="Jordan Smith">
+                        <div class="team-card-overlay"></div>
+                    </div>
+                    <div class="team-card-info">
+                        <h4>Jordan Smith</h4>
+                        <span class="team-role">C2 Engineer</span>
+                        <span class="team-handle">@sys_call</span>
+                        <span class="team-skills">Tooling Development &bull; C2</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">04</span>
+                <div class="section-line"></div>
+                <span class="section-label">ARCHIVE</span>
+            </div>
+            <h2 class="section-title reveal-text">Achievements</h2>
+            <div class="achievements-timeline">
+                <div class="timeline-item" data-year="2023">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-tilt>
+                        <span class="timeline-year">2023</span>
+                        <h4>DEF CON Quals</h4>
+                        <p>Qualified (Top 10)</p>
+                        <span class="timeline-type">Jeopardy</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2023">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-tilt>
+                        <span class="timeline-year">2023</span>
+                        <h4>Real World CTF</h4>
+                        <p>3rd Place</p>
+                        <span class="timeline-type">Jeopardy</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2022">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-tilt>
+                        <span class="timeline-year">2022</span>
+                        <h4>PlaidCTF</h4>
+                        <p>1st Place</p>
+                        <span class="timeline-type">Jeopardy</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2022">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-tilt>
+                        <span class="timeline-year">2022</span>
+                        <h4>Google CTF</h4>
+                        <p>5th Place</p>
+                        <span class="timeline-type">Jeopardy</span>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2021">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-tilt>
+                        <span class="timeline-year">2021</span>
+                        <h4>HITCON CTF</h4>
+                        <p>2nd Place</p>
+                        <span class="timeline-type">Jeopardy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">05</span>
+                <div class="section-line"></div>
+                <span class="section-label">SECURE COMM</span>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-glass-card">
+                    <div class="contact-header">
+                        <h2 class="section-title reveal-text">Contact Us</h2>
+                        <p>Reach out for collaborations, recruitment, workshops, and CTF partnerships.</p>
+                    </div>
+                    <div class="contact-grid">
+                        <a href="mailto:contact@ehax.in" class="contact-item" data-tilt>
+                            <span class="material-symbols-outlined">mail</span>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">contact@ehax.in</span>
+                            </div>
+                        </a>
+                        <a href="tel:+911140001234" class="contact-item" data-tilt>
+                            <span class="material-symbols-outlined">call</span>
+                            <div>
+                                <span class="contact-label">Phone</span>
+                                <span class="contact-value">+91 11 4000 1234</span>
+                            </div>
+                        </a>
+                        <div class="contact-item" data-tilt>
+                            <span class="material-symbols-outlined">pin_drop</span>
+                            <div>
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Delhi Technological University, Delhi</span>
+                            </div>
+                        </div>
+                        <a href="#" class="contact-item" data-tilt>
+                            <span class="material-symbols-outlined">forum</span>
+                            <div>
+                                <span class="contact-label">Discord</span>
+                                <span class="contact-value">discord.gg/ehax</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./logo.png" alt="EHAX Logo">
+                <span>root@ehax</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/e-hax">GITHUB</a>
+                <a href="#">DISCORD</a>
+                <a href="#">LINKEDIN</a>
+                <a href="./robots.txt">ROBOTS</a>
+                <a href="#">BLOG</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

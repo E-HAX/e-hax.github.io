@@ -1,0 +1,6 @@
+# Hello welcome to EHAX
+
+# ayi sabash
+
+User-agent: *
+Allow: /
