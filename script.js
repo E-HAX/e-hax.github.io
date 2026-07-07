@@ -4,6 +4,116 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
+  // MILKY WAY STAR CLUSTER
+  // ==========================================
+  class MilkyWay {
+    constructor(canvas) {
+      this.canvas = canvas;
+      this.ctx = canvas.getContext("2d");
+      this.stars = [];
+      this.scrollY = 0;
+      this.baseSize = Math.min(window.innerWidth * 0.8, 800);
+      this.resize();
+      this.init();
+      this.animate();
+
+      window.addEventListener("resize", () => this.resize());
+      window.addEventListener("scroll", () => {
+        this.scrollY = window.scrollY;
+      }, { passive: true });
+    }
+
+    resize() {
+      const size = this.baseSize * 2;
+      this.canvas.width = size;
+      this.canvas.height = size;
+      this.canvas.style.width = this.baseSize + "px";
+      this.canvas.style.height = this.baseSize + "px";
+    }
+
+    init() {
+      this.stars = [];
+      const count = window.innerWidth < 768 ? 400 : 800;
+
+      for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const radius = Math.pow(Math.random(), 0.6) * this.baseSize;
+        const spread = (Math.random() - 0.5) * this.baseSize * 0.3;
+
+        this.stars.push({
+          x: this.canvas.width / 2 + Math.cos(angle) * radius + spread * Math.sin(angle * 2),
+          y: this.canvas.height / 2 + Math.sin(angle) * radius * 0.4 + spread * Math.cos(angle),
+          size: Math.random() * 2 + 0.3,
+          opacity: Math.random() * 0.6 + 0.1,
+          twinkleSpeed: Math.random() * 0.02 + 0.005,
+          twinkleOffset: Math.random() * Math.PI * 2,
+        });
+      }
+
+      // Core glow stars
+      for (let i = 0; i < 30; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const radius = Math.random() * this.baseSize * 0.15;
+        this.stars.push({
+          x: this.canvas.width / 2 + Math.cos(angle) * radius,
+          y: this.canvas.height / 2 + Math.sin(angle) * radius * 0.4,
+          size: Math.random() * 3 + 2,
+          opacity: Math.random() * 0.4 + 0.3,
+          twinkleSpeed: Math.random() * 0.03 + 0.01,
+          twinkleOffset: Math.random() * Math.PI * 2,
+          glow: true,
+        });
+      }
+    }
+
+    animate() {
+      const time = performance.now() * 0.001;
+      const heroHeight = window.innerHeight;
+      const scrollProgress = Math.min(this.scrollY / heroHeight, 3);
+      const scale = 1 + scrollProgress * 0.8;
+      const opacity = Math.max(1 - scrollProgress * 0.3, 0.3);
+      const rotation = time * 0.02;
+
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.save();
+      this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
+      this.ctx.rotate(rotation);
+      this.ctx.scale(scale, scale);
+      this.ctx.translate(-this.canvas.width / 2, -this.canvas.height / 2);
+      this.ctx.globalAlpha = opacity;
+
+      this.stars.forEach((star) => {
+        const twinkle = Math.sin(time * star.twinkleSpeed * 20 + star.twinkleOffset) * 0.5 + 0.5;
+        const alpha = star.opacity * twinkle;
+
+        if (star.glow) {
+          const gradient = this.ctx.createRadialGradient(
+            star.x, star.y, 0,
+            star.x, star.y, star.size * 4
+          );
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
+          gradient.addColorStop(0.5, `rgba(200, 200, 220, ${alpha * 0.3})`);
+          gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+          this.ctx.fillStyle = gradient;
+          this.ctx.beginPath();
+          this.ctx.arc(star.x, star.y, star.size * 4, 0, Math.PI * 2);
+          this.ctx.fill();
+        }
+
+        this.ctx.beginPath();
+        this.ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        this.ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        this.ctx.fill();
+      });
+
+      this.ctx.restore();
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  const milkywayCanvas = document.getElementById("milkywayCanvas");
+  if (milkywayCanvas) new MilkyWay(milkywayCanvas);
+  // ==========================================
   // PARTICLE SYSTEM
   // ==========================================
   class ParticleSystem {
@@ -29,7 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     init() {
-      const count = Math.min(80, Math.floor(window.innerWidth / 15));
+      const isMobile = window.innerWidth < 768;
+      const count = isMobile ? 30 : Math.min(80, Math.floor(window.innerWidth / 15));
       for (let i = 0; i < count; i++) {
         this.particles.push({
           x: Math.random() * this.canvas.width,
@@ -309,6 +420,12 @@ document.addEventListener("DOMContentLoaded", () => {
       heroSection.style.cursor = "grabbing";
     });
 
+    heroSection.addEventListener("touchstart", (e) => {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
     window.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
       const dx = e.clientX - startX;
@@ -319,9 +436,23 @@ document.addEventListener("DOMContentLoaded", () => {
       startY = e.clientY;
     });
 
+    window.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      const dx = e.touches[0].clientX - startX;
+      const dy = e.touches[0].clientY - startY;
+      rotY += dx * 0.5;
+      rotX -= dy * 0.5;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
     window.addEventListener("mouseup", () => {
       isDragging = false;
       heroSection.style.cursor = "grab";
+    });
+
+    window.addEventListener("touchend", () => {
+      isDragging = false;
     });
   }
 
@@ -437,7 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // CURSOR GLOW EFFECT (DESKTOP ONLY)
   // ==========================================
-  if (window.matchMedia("(min-width: 768px)").matches) {
+  if (window.matchMedia("(min-width: 768px) and (hover: hover)").matches) {
     const cursorGlow = document.createElement("div");
     cursorGlow.style.cssText = `
       position: fixed;
