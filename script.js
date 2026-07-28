@@ -378,30 +378,20 @@ document.addEventListener("DOMContentLoaded", () => {
   new TiltEffect();
 
   // ==========================================
-  // HERO 3D LOGO - DRAG TO ROTATE + AUTO SPIN
+  // HERO 3D LOGO - CLICK AND DRAG ROTATION
   // ==========================================
   const heroLogo = document.getElementById("heroLogo3D");
   if (heroLogo) {
-    const heroSection = document.getElementById("hero");
     let isDragging = false;
     let startX = 0, startY = 0;
     let rotX = 0, rotY = 0;
     let currentRotX = 0, currentRotY = 0;
-    let autoRotX = 0, autoRotY = 0;
 
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
     const animate = () => {
-      if (!isDragging) {
-        autoRotX += 0.15;
-        autoRotY += 0.25;
-      }
-
-      const targetRotX = rotX + autoRotX;
-      const targetRotY = rotY + autoRotY;
-
-      currentRotX = lerp(currentRotX, targetRotX, 0.08);
-      currentRotY = lerp(currentRotY, targetRotY, 0.08);
+      currentRotX = lerp(currentRotX, rotX, 0.1);
+      currentRotY = lerp(currentRotY, rotY, 0.1);
 
       heroLogo.style.transform = `
         rotateX(${currentRotX}deg)
@@ -413,17 +403,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animate();
 
-    heroSection.addEventListener("mousedown", (e) => {
+    heroLogo.style.cursor = "grab";
+
+    heroLogo.addEventListener("mousedown", (e) => {
       isDragging = true;
       startX = e.clientX;
       startY = e.clientY;
-      heroSection.style.cursor = "grabbing";
+      heroLogo.style.cursor = "grabbing";
     });
 
-    heroSection.addEventListener("touchstart", (e) => {
+    heroLogo.addEventListener("touchstart", (e) => {
       isDragging = true;
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
+      heroLogo.style.cursor = "grabbing";
     }, { passive: true });
 
     window.addEventListener("mousemove", (e) => {
@@ -447,12 +440,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
 
     window.addEventListener("mouseup", () => {
-      isDragging = false;
-      heroSection.style.cursor = "grab";
+      if (isDragging) {
+        isDragging = false;
+        heroLogo.style.cursor = "grab";
+      }
     });
 
     window.addEventListener("touchend", () => {
-      isDragging = false;
+      if (isDragging) {
+        isDragging = false;
+        heroLogo.style.cursor = "grab";
+      }
     });
   }
 

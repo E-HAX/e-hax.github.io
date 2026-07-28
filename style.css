@@ -109,24 +109,22 @@ a {
 }
 
 .logo {
-  font-family: var(--font-mono);
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
   cursor: pointer;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.15em;
-  position: relative;
+  user-select: none;
 }
 
-.logo::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  top: 0;
-  color: rgba(255, 0, 0, 0.3);
-  z-index: -1;
-  clip-path: inset(0 0 0 0);
-  animation: logo-glitch 3s infinite;
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.logo:hover .nav-logo-img {
+  transform: scale(1.08);
 }
 
 @keyframes logo-glitch {
@@ -248,9 +246,56 @@ a {
   }
 }
 
-@media (max-width: 767px) {
-  .nav-right .btn-primary {
-    display: none !important;
+/* Header Social Buttons */
+.nav-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s var(--ease-out-expo);
+  text-decoration: none;
+}
+
+.nav-social-btn:hover {
+  border-color: var(--border-hover);
+  background: var(--accent-dim);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+.nav-social-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.nav-social-btn:hover svg {
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .nav-socials {
+    gap: 4px;
+  }
+  .nav-social-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+  .nav-social-btn svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -723,6 +768,9 @@ a {
   transform-style: preserve-3d;
   transition: none;
   will-change: transform;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .hero-logo-3d {
@@ -1229,7 +1277,7 @@ a {
 }
 
 @media (min-width: 1024px) {
-  .domains-grid { grid-template-columns: repeat(4, 1fr); }
+  .domains-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .domain-card {
