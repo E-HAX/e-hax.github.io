@@ -378,20 +378,39 @@ document.addEventListener("DOMContentLoaded", () => {
   new TiltEffect();
 
   // ==========================================
-  // HERO 3D LOGO - CLICK AND DRAG ROTATION
+  // HERO 3D LOGO - ELASTIC DRAG & SNAP-BACK
   // ==========================================
   const heroLogo = document.getElementById("heroLogo3D");
   if (heroLogo) {
     let isDragging = false;
     let startX = 0, startY = 0;
-    let rotX = 0, rotY = 0;
+    let targetRotX = 0, targetRotY = 0;
     let currentRotX = 0, currentRotY = 0;
-
-    const lerp = (start, end, factor) => start + (end - start) * factor;
+    let velX = 0, velY = 0;
 
     const animate = () => {
-      currentRotX = lerp(currentRotX, rotX, 0.1);
-      currentRotY = lerp(currentRotY, rotY, 0.1);
+      if (isDragging) {
+        currentRotX += (targetRotX - currentRotX) * 0.25;
+        currentRotY += (targetRotY - currentRotY) * 0.25;
+        velX = 0;
+        velY = 0;
+      } else {
+        // Subtle elastic spring physics returning to centered position (0, 0)
+        const stiffness = 0.07;
+        const damping = 0.85;
+
+        const forceX = (0 - currentRotX) * stiffness;
+        const forceY = (0 - currentRotY) * stiffness;
+
+        velX = (velX + forceX) * damping;
+        velY = (velY + forceY) * damping;
+
+        currentRotX += velX;
+        currentRotY += velY;
+
+        targetRotX = currentRotX;
+        targetRotY = currentRotY;
+      }
 
       heroLogo.style.transform = `
         rotateX(${currentRotX}deg)
@@ -423,8 +442,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isDragging) return;
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
-      rotY += dx * 0.5;
-      rotX -= dy * 0.5;
+      targetRotY += dx * 0.45;
+      targetRotX -= dy * 0.45;
+      targetRotX = Math.max(-75, Math.min(75, targetRotX));
+      targetRotY = Math.max(-100, Math.min(100, targetRotY));
       startX = e.clientX;
       startY = e.clientY;
     });
@@ -433,25 +454,25 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isDragging) return;
       const dx = e.touches[0].clientX - startX;
       const dy = e.touches[0].clientY - startY;
-      rotY += dx * 0.5;
-      rotX -= dy * 0.5;
+      targetRotY += dx * 0.45;
+      targetRotX -= dy * 0.45;
+      targetRotX = Math.max(-75, Math.min(75, targetRotX));
+      targetRotY = Math.max(-100, Math.min(100, targetRotY));
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
     }, { passive: true });
 
-    window.addEventListener("mouseup", () => {
+    const stopDrag = () => {
       if (isDragging) {
         isDragging = false;
         heroLogo.style.cursor = "grab";
       }
-    });
+    };
 
-    window.addEventListener("touchend", () => {
-      if (isDragging) {
-        isDragging = false;
-        heroLogo.style.cursor = "grab";
-      }
-    });
+    window.addEventListener("mouseup", stopDrag);
+    window.addEventListener("mouseleave", stopDrag);
+    window.addEventListener("touchend", stopDrag);
+    window.addEventListener("touchcancel", stopDrag);
   }
 
   // ==========================================
