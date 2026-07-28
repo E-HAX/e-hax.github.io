@@ -884,19 +884,32 @@ a {
   gap: 32px;
 }
 
-.glitch-wrapper {
+.hero-title-wrapper {
   overflow: hidden;
 }
 
-.glitch {
+.hero-title {
   font-family: var(--font-sans);
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(32px, 6vw, 76px);
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.03em;
-  line-height: 1;
+  line-height: 1.2;
   position: relative;
-  animation: glitch-skew 4s infinite;
+  min-height: 1.2em;
+}
+
+.text-type-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--text-primary);
+  font-weight: 300;
+  animation: cursor-blink 0.4s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .glitch::before,

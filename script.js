@@ -506,40 +506,57 @@ document.addEventListener("DOMContentLoaded", () => {
   new CounterAnimation();
 
   // ==========================================
-  // TYPING EFFECT
+  // TEXT TYPE EFFECT (React Bits)
   // ==========================================
-  class TypingEffect {
-    constructor(element) {
-      this.element = element;
-      this.text = element.textContent;
-      this.element.textContent = "";
-      this.index = 0;
-      this.type();
-    }
+  const textTypeEl = document.getElementById("textTypeContent");
+  if (textTypeEl) {
+    const texts = [
+      "Web Exploitation",
+      "Binary Exploitation",
+      "Reverse Engineering",
+      "Cryptography",
+      "Hardware / IoT",
+      "Cloud Infrastructure",
+      "Mobile Security",
+      "Offensive Tooling",
+      "AI Security"
+    ];
 
-    type() {
-      if (this.index < this.text.length) {
-        this.element.textContent += this.text.charAt(this.index);
-        this.index++;
-        setTimeout(() => this.type(), 30 + Math.random() * 50);
+    const typingSpeed = 65;
+    const deletingSpeed = 60;
+    const pauseDuration = 500;
+
+    let textIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+      const currentText = texts[textIdx];
+
+      if (isDeleting) {
+        charIdx--;
+      } else {
+        charIdx++;
       }
-    }
-  }
 
-  const typingElement = document.querySelector(".typing-text");
-  if (typingElement) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            new TypingEffect(typingElement);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    observer.observe(typingElement);
+      const displayed = currentText.substring(0, charIdx);
+      textTypeEl.textContent = displayed;
+
+      let speed = isDeleting ? deletingSpeed : typingSpeed;
+
+      if (!isDeleting && charIdx === currentText.length) {
+        speed = pauseDuration;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        textIdx = (textIdx + 1) % texts.length;
+        speed = 350;
+      }
+
+      setTimeout(typeLoop, speed);
+    }
+
+    typeLoop();
   }
 
   // ==========================================
