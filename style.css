@@ -109,24 +109,22 @@ a {
 }
 
 .logo {
-  font-family: var(--font-mono);
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
   cursor: pointer;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.15em;
-  position: relative;
+  user-select: none;
 }
 
-.logo::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  top: 0;
-  color: rgba(255, 0, 0, 0.3);
-  z-index: -1;
-  clip-path: inset(0 0 0 0);
-  animation: logo-glitch 3s infinite;
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.logo:hover .nav-logo-img {
+  transform: scale(1.08);
 }
 
 @keyframes logo-glitch {
@@ -770,6 +768,9 @@ a {
   transform-style: preserve-3d;
   transition: none;
   will-change: transform;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .hero-logo-3d {
