@@ -1,6 +1,17 @@
 /* ==========================================
-   EHAX101 GUIDE PAGE — extends style.css
+   EHAX101 GUIDE PAGE - extends style.css
    ========================================== */
+
+/* tighter vertical rhythm between guide sections than the default site sections */
+.section-container {
+  padding: 64px 32px;
+}
+
+@media (max-width: 767px) {
+  .section-container {
+    padding: 44px 20px;
+  }
+}
 
 /* make the reused .contact-item links read as clickable by default, not just on hover */
 .guide-resource-grid .contact-item {
@@ -134,6 +145,16 @@
   border-radius: 20px;
   background: var(--bg-card);
   margin: 32px 0;
+}
+
+.guide-callout.domain-note {
+  padding: 18px 20px;
+  border-radius: 16px;
+  margin: 0;
+}
+
+.guide-callout.domain-note .material-symbols-outlined {
+  font-size: 18px;
 }
 
 .guide-callout .material-symbols-outlined {
@@ -299,7 +320,7 @@
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: #ff4d4d;
   text-transform: uppercase;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -498,8 +519,130 @@
   margin: 0 auto 32px;
 }
 
+/* ---- shared text-wrap safety (long URLs / titles never force horizontal scroll) ---- */
+.guide-link-text,
+.guide-callout-body,
+.guide-prose,
+.guide-domain-desc,
+.guide-step-body p {
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 640px) {
   .guide-final { padding: 32px 24px; }
   .guide-domain-head { flex-wrap: wrap; }
   .guide-domain-warn { margin-left: 0; }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+   ========================================== */
+@media (max-width: 767px) {
+  .guide-hero {
+    padding: 130px 20px 56px;
+  }
+
+  .guide-eyebrow {
+    font-size: 11px;
+    padding: 7px 14px;
+    margin-bottom: 20px;
+  }
+
+  .guide-hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .guide-hero-buttons {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .guide-hero-buttons .btn-3d,
+  .guide-hero-buttons .btn-glass {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 13px;
+  }
+
+  .guide-prose {
+    font-size: 15px;
+  }
+
+  .guide-callout {
+    padding: 18px 20px;
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .guide-steps {
+    gap: 12px;
+  }
+
+  .guide-step {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .guide-domains {
+    gap: 18px;
+  }
+
+  .guide-domain-card {
+    padding: 22px;
+    gap: 14px;
+  }
+
+  .guide-domain-head h3 {
+    font-size: 18px;
+  }
+
+  .guide-domain-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .guide-link-row {
+    padding: 12px 14px;
+    flex-wrap: wrap;
+  }
+
+  .guide-tools-grid {
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .guide-tool-card {
+    padding: 18px;
+  }
+
+  .guide-resource-grid {
+    gap: 14px;
+  }
+
+  .guide-final {
+    padding: 28px 20px;
+    border-radius: 22px;
+  }
+
+  .guide-final .guide-hero-buttons {
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 400px) {
+  .guide-hero-title {
+    font-size: clamp(32px, 12vw, 44px);
+  }
+
+  .guide-domain-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .guide-domain-icon .material-symbols-outlined {
+    font-size: 20px;
+  }
 }
