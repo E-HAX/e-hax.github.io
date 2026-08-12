@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHAX101 - Beginner's CTF Guide | EHAX</title>
+    <meta name="description" content="EHAX101: the beginner-friendly roadmap to CTFs — getting started, learning strategy, domains, and tools, curated by EHAX, DTU's cybersecurity team.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ehax101.css">
+</head>
+
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <nav class="navbar" id="mainNavbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="./index.html" class="logo" aria-label="EHAX Home">
+                    <img src="./logo.png" alt="EHAX Logo" class="nav-logo-img">
+                </a>
+                <div class="nav-links">
+                    <a href="./index.html#about">ABOUT</a>
+                    <a href="./index.html#domains">DOMAINS</a>
+                    <a href="./index.html#council">COUNCIL</a>
+                    <a href="./index.html#events">EVENTS</a>
+                    <a href="./index.html#ctf-achievements">CTF</a>
+                    <a href="./ehax101.html" class="active">EHAX101</a>
+                    <a href="./index.html#contact">CONTACT</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-socials">
+                    <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="Discord" title="Discord">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/E-HAX" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="GitHub" title="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/ehax/" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="LinkedIn" title="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:ehaxdce@gmail.com" class="nav-social-btn" aria-label="Email" title="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false"
+                    aria-controls="mobileMenu">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="./index.html#about">ABOUT</a>
+            <a href="./index.html#domains">DOMAINS</a>
+            <a href="./index.html#council">COUNCIL</a>
+            <a href="./index.html#events">EVENTS</a>
+            <a href="./index.html#ctf-achievements">CTF</a>
+            <a href="./ehax101.html">EHAX101</a>
+            <a href="./index.html#contact">CONTACT</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Guide Hero -->
+        <section class="guide-hero">
+            <span class="guide-eyebrow">
+                <span class="material-symbols-outlined">terminal</span>
+                RECRUITMENT GUIDE
+            </span>
+            <h1 class="guide-hero-title">EHAX<span>101</span></h1>
+            <p class="guide-hero-subtitle">
+                A beginner's roadmap to Capture The Flag competitions — where to start, how to learn, and every
+                domain you'll need to crack your first flag. This guide assumes you already have a Linux
+                environment set up and are comfortable with basic terminal commands.
+            </p>
+            <div class="guide-hero-buttons">
+                <a href="#getting-started" class="btn-3d">
+                    <span>Start Learning</span>
+                    <span class="material-symbols-outlined">arrow_downward</span>
+                </a>
+                <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer" class="btn-glass">
+                    <span class="material-symbols-outlined">forum</span>
+                    <span>Ask in Discord</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- What is a CTF -->
+        <section id="what-is-ctf" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">01</span>
+                <div class="section-line"></div>
+                <span class="section-label">WHAT IS A CTF</span>
+            </div>
+            <h2 class="section-title reveal-text">Capture The Flag</h2>
+            <p class="guide-prose">
+                CTF stands for <strong>"Capture The Flag."</strong> Since cybersecurity can be theory-heavy, CTFs
+                were created to gamify the learning experience. While understanding the underlying theory is
+                essential, your primary growth will come from the hands-on process of solving these challenges.
+            </p>
+        </section>
+
+        <!-- Getting Started -->
+        <section id="getting-started" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">02</span>
+                <div class="section-line"></div>
+                <span class="section-label">GETTING STARTED</span>
+            </div>
+            <h2 class="section-title reveal-text">Start Here</h2>
+            <p class="guide-prose">
+                A great way to begin is by tackling picoCTF challenges, which are now hosted on CyLab Academy. Follow
+                this introductory learning path — it provides both instructional videos and basic challenges.
+            </p>
+
+            <div class="guide-callout start">
+                <span class="material-symbols-outlined">flag</span>
+                <div class="guide-callout-body">
+                    <span class="guide-callout-tag">Start from here — beginner learning path</span>
+                    <p>
+                        For those who don't know anything yet — this path has videos, challenges, and docs, all in
+                        one place.
+                    </p>
+                    <p>
+                        <a href="https://learn.cylabacademy.org/learning-paths/14/89" target="_blank" rel="noopener noreferrer">
+                            learn.cylabacademy.org/learning-paths/14/89
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="guide-steps">
+                <div class="guide-step">
+                    <span class="guide-step-num">1</span>
+                    <div class="guide-step-body">
+                        <h4>Finish the beginner learning path above</h4>
+                        <p>Work through every video and challenge — it lays the foundation for everything else.</p>
+                    </div>
+                </div>
+                <div class="guide-step">
+                    <span class="guide-step-num">2</span>
+                    <div class="guide-step-body">
+                        <h4>Pick a category and keep solving</h4>
+                        <p>
+                            Once the path is done, go category by category. Starting with
+                            <strong>Forensics</strong> or <strong>Web</strong> is easiest if you want a smooth order
+                            of progression.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Strategy -->
+        <section id="learning-strategy" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">03</span>
+                <div class="section-line"></div>
+                <span class="section-label">LEARNING STRATEGY</span>
+            </div>
+            <h2 class="section-title reveal-text">How You'll Actually Learn</h2>
+            <p class="guide-prose">
+                In CTFs you learn by solving — you'll pick up new tools while working through challenges, not before.
+                So just start: watch a tutorial, ask an AI, and look for challenge <strong>writeups</strong> (a
+                writeup is the solution someone publishes after solving a challenge — you'll also be required to
+                write these for recCTF later).
+            </p>
+            <p class="guide-prose">
+                If you don't know how to solve a challenge, read its writeup. If it mentions a tool you don't know,
+                learn that tool with a quick YouTube video, then come back and re-approach the challenge. You can
+                also ask anything in the group — your seniors are always there to help. Don't be shy to ask or
+                discuss; showing interest is exactly what gets you noticed, and it earns brownie points for
+                recruitment.
+            </p>
+            <div class="guide-callout">
+                <span class="material-symbols-outlined">lightbulb</span>
+                <div class="guide-callout-body">
+                    <p>
+                        <strong>Note:</strong> CyLab Academy used to be called picoCTF. So when searching for a
+                        writeup, just search <strong>"PICOCTF &lt;Challenge name&gt; writeup"</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTF Domains -->
+        <section id="domains" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">04</span>
+                <div class="section-line"></div>
+                <span class="section-label">CTF DOMAINS</span>
+            </div>
+            <h2 class="section-title reveal-text">CTF Domains</h2>
+            <p class="guide-prose" style="margin-bottom: 32px;">
+                Use hints, refer to writeups, and ask doubts in the group — that's how everyone learns these.
+            </p>
+
+            <div class="guide-domains">
+                <!-- Web -->
+                <div class="guide-domain-card" data-tilt>
+                    <div class="guide-domain-head">
+                        <div class="guide-domain-icon">
+                            <span class="material-symbols-outlined">language</span>
+                        </div>
+                        <h3>Web Exploitation</h3>
+                    </div>
+                    <p class="guide-domain-desc">
+                        Uncovering security vulnerabilities in web applications. This might involve performing SQL
+                        injections to reveal hidden database information or bypassing login screens.
+                    </p>
+                    <div class="guide-domain-links">
+                        <a class="guide-link-row" href="https://cylabacademy.org/learning_guides/Book-3-Web-Exploitation.pdf" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">menu_book</span>
+                            <span class="guide-link-text">
+                                <span class="title">Basics of Web (PDF)</span>
+                                <span class="note">CyLab Academy learning guide</span>
+                            </span>
+                        </a>
+                    </div>
+                    <p class="guide-domain-note">
+                        Do all the easy web challenges on CyLab. While solving them, pick up Burp Suite and Chrome
+                        DevTools along the way — watch videos as you go, and ask in the group if you get stuck.
+                    </p>
+                </div>
+
+                <!-- Forensics -->
+                <div class="guide-domain-card" data-tilt>
+                    <div class="guide-domain-head">
+                        <div class="guide-domain-icon">
+                            <span class="material-symbols-outlined">search</span>
+                        </div>
+                        <h3>Forensics</h3>
+                    </div>
+                    <p class="guide-domain-desc">
+                        Investigating digital artifacts like file headers, network captures, or memory dumps to
+                        uncover hidden secrets — much like a digital crime scene investigator.
+                    </p>
+                    <div class="guide-domain-links">
+                        <a class="guide-link-row" href="https://learn.cylabacademy.org/learning-paths/16" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">route</span>
+                            <span class="guide-link-text">
+                                <span class="title">Forensics Learning Path</span>
+                                <span class="note">learn.cylabacademy.org/learning-paths/16</span>
+                            </span>
+                        </a>
+                    </div>
+                    <p class="guide-domain-note">
+                        This playlist has both videos and tools covered. If something's missing, look the tool up
+                        on YouTube, and ask in the group for any doubts.
+                    </p>
+                </div>
+
+                <!-- Cryptography -->
+                <div class="guide-domain-card" data-tilt>
+                    <div class="guide-domain-head">
+                        <div class="guide-domain-icon">
+                            <span class="material-symbols-outlined">key</span>
+                        </div>
+                        <h3>Cryptography</h3>
+                    </div>
+                    <p class="guide-domain-desc">
+                        The study of codes and ciphers. You will learn how to identify different types of encryption
+                        and decode secret messages.
+                    </p>
+                    <div class="guide-domain-links">
+                        <a class="guide-link-row" href="https://learn.cylabacademy.org/learning-paths/17/132" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">route</span>
+                            <span class="guide-link-text">
+                                <span class="title">Cryptography Learning Path</span>
+                                <span class="note">learn.cylabacademy.org/learning-paths/17/132</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Reverse Engineering -->
+                <div class="guide-domain-card" data-tilt>
+                    <div class="guide-domain-head">
+                        <div class="guide-domain-icon">
+                            <span class="material-symbols-outlined">memory</span>
+                        </div>
+                        <h3>Reverse Engineering</h3>
+                    </div>
+                    <p class="guide-domain-desc">
+                        Analyzing software to understand its inner workings, often without access to the source
+                        code, to uncover algorithms, hidden functionality, or vulnerabilities.
+                    </p>
+                    <div class="guide-domain-links">
+                        <a class="guide-link-row" href="https://youtu.be/KJgsSFOSQv0?si=BQfIR67_X2zBPflD" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">code</span>
+                            <span class="guide-link-text">
+                                <span class="title">1. Learn C</span>
+                                <span class="note">Preferred language for reverse engineering</span>
+                            </span>
+                        </a>
+                        <a class="guide-link-row" href="https://www.youtube.com/watch?v=9tZmSFjoOm4" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">play_circle</span>
+                            <span class="guide-link-text">
+                                <span class="title">2. What is Reverse Engineering</span>
+                                <span class="note">Computerphile — good intro video</span>
+                            </span>
+                        </a>
+                        <a class="guide-link-row" href="https://www.youtube.com/watch?v=GEX5jIs2BHs&t=78s" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">sports_esports</span>
+                            <span class="guide-link-text">
+                                <span class="title">Game Reverse Engineering</span>
+                                <span class="note">Cool practical example video</span>
+                            </span>
+                        </a>
+                        <a class="guide-link-row" href="https://www.youtube.com/watch?si=Emv4wWeLrqb5z6F4&v=xpzz9fUTWpY&feature=youtu.be" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">smart_toy</span>
+                            <span class="guide-link-text">
+                                <span class="title">How To Use Cheat Engine</span>
+                                <span class="note">Tutorial with examples</span>
+                            </span>
+                        </a>
+                        <a class="guide-link-row" href="https://www.youtube.com/watch?v=fTGTnrgjuGA" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">construction</span>
+                            <span class="guide-link-text">
+                                <span class="title">3. Ghidra Basics</span>
+                                <span class="note">Follow after the videos above</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Binary Exploitation -->
+                <div class="guide-domain-card pwn" data-tilt>
+                    <div class="guide-domain-head">
+                        <div class="guide-domain-icon">
+                            <span class="material-symbols-outlined">terminal</span>
+                        </div>
+                        <h3>Binary Exploitation (Pwn)</h3>
+                        <span class="guide-domain-warn">Harder — do this last ☠️</span>
+                    </div>
+                    <p class="guide-domain-desc">
+                        Finding and exploiting flaws in compiled software or binaries (such as buffer overflows) to
+                        gain unauthorized control of a system. On the harder side — prefer finishing Forensics and
+                        Web before touching this.
+                    </p>
+                    <div class="guide-domain-links">
+                        <a class="guide-link-row" href="https://learn.cylabacademy.org/learning-paths/2" target="_blank" rel="noopener noreferrer">
+                            <span class="material-symbols-outlined">route</span>
+                            <span class="guide-link-text">
+                                <span class="title">Binary Exploitation Learning Path</span>
+                                <span class="note">learn.cylabacademy.org/learning-paths/2</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources & Tools -->
+        <section id="resources" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">05</span>
+                <div class="section-line"></div>
+                <span class="section-label">RESOURCES &amp; TOOLS</span>
+            </div>
+            <h2 class="section-title reveal-text">Resources &amp; Tools</h2>
+
+            <div class="guide-resource-grid">
+                <a class="contact-item" data-tilt href="https://ctf101.org/" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon-box">
+                        <span class="material-symbols-outlined">school</span>
+                    </div>
+                    <div class="contact-text-content">
+                        <span class="contact-label">Essential Resource</span>
+                        <span class="contact-value">CTF101.org</span>
+                    </div>
+                    <span class="material-symbols-outlined contact-arrow">north_east</span>
+                </a>
+                <a class="contact-item" data-tilt href="https://primer.cylabacademy.org/" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon-box">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <div class="contact-text-content">
+                        <span class="contact-label">Essential Resource</span>
+                        <span class="contact-value">CyLab Primer Docs</span>
+                    </div>
+                    <span class="material-symbols-outlined contact-arrow">north_east</span>
+                </a>
+            </div>
+            <p class="guide-prose" style="margin-top: 20px;">
+                CTF101 is a great overview of common CTF concepts — it's a bit tough to follow end-to-end, but is
+                great to refer back to for specific subtopics. The CyLab Primer has detailed documentation for
+                reference.
+            </p>
+
+            <div class="guide-tools-grid">
+                <div class="guide-tool-card">
+                    <h4>Web</h4>
+                    <div class="guide-chip-list">
+                        <span class="guide-chip">Burp Suite</span>
+                        <span class="guide-chip">Postman</span>
+                        <span class="guide-chip">Chrome DevTools</span>
+                    </div>
+                </div>
+                <div class="guide-tool-card">
+                    <h4>Forensics</h4>
+                    <div class="guide-chip-list">
+                        <span class="guide-chip">Wireshark</span>
+                        <span class="guide-chip">Autopsy</span>
+                        <span class="guide-chip">StegSolve</span>
+                        <span class="guide-chip">Volatility</span>
+                    </div>
+                </div>
+                <div class="guide-tool-card">
+                    <h4>Reverse Engineering</h4>
+                    <div class="guide-chip-list">
+                        <span class="guide-chip">Ghidra</span>
+                        <span class="guide-chip">IDA Pro</span>
+                        <span class="guide-chip">Binary Ninja</span>
+                    </div>
+                </div>
+                <div class="guide-tool-card">
+                    <h4>Binary Exploitation</h4>
+                    <div class="guide-chip-list">
+                        <span class="guide-chip">GDB</span>
+                        <span class="guide-chip">GEF</span>
+                        <span class="guide-chip">pwndbg</span>
+                        <span class="guide-chip">pwntools</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Note -->
+        <section id="final-note" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">06</span>
+                <div class="section-line"></div>
+                <span class="section-label">FINAL NOTE</span>
+            </div>
+            <div class="guide-final">
+                <h3>Ready for Recruitment</h3>
+                <p>
+                    To be considered for recruitment, we strongly recommend completing <strong>at least all the easy
+                    challenges of each category</strong> — majorly Web, Crypto, Forensics, Rev, and Bin — on CyLab
+                    Academy. We are all here to help you succeed — good luck!
+                </p>
+                <div class="guide-hero-buttons">
+                    <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer" class="btn-3d">
+                        <span class="material-symbols-outlined">terminal</span>
+                        <span>Join EHAX Discord</span>
+                    </a>
+                    <a href="./index.html" class="btn-glass">
+                        <span class="material-symbols-outlined">home</span>
+                        <span>Back to Home</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./logo.png" alt="EHAX Logo">
+                <span>root@ehax</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/E-HAX" target="_blank">GITHUB</a>
+                <a href="https://www.linkedin.com/company/ehax/" target="_blank">LINKEDIN</a>
+                <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer">DISCORD</a>
+                <a href="mailto:ehaxdce@gmail.com">EMAIL</a>
+                <a href="./robots.txt">ROBOTS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
