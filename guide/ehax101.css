@@ -74,7 +74,7 @@
 
 .guide-hero-subtitle {
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-secondary);
   max-width: 640px;
   margin: 0 auto 40px;
@@ -322,10 +322,30 @@
   letter-spacing: 0.08em;
   color: #ff4d4d;
   text-transform: uppercase;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 77, 77, 0.3);
   border-radius: 999px;
   padding: 4px 10px;
   margin-left: auto;
+}
+
+.guide-domain-order {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #4ade80;
+  text-transform: uppercase;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  background: rgba(74, 222, 128, 0.06);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.guide-domain-order.order-then {
+  color: #facc15;
+  border-color: rgba(250, 204, 21, 0.3);
+  background: rgba(250, 204, 21, 0.06);
 }
 
 .guide-domain-desc {
@@ -549,7 +569,7 @@
   }
 
   .guide-hero-subtitle {
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 28px;
   }
 

@@ -88,9 +88,8 @@
             </span>
             <h1 class="guide-hero-title">EHAX<span>101</span></h1>
             <p class="guide-hero-subtitle">
-                A beginner's roadmap to Capture The Flag competitions  where to start, how to learn, and every
-                domain you'll need to crack your first flag. This guide assumes you already have a Linux
-                environment set up and are comfortable with basic terminal commands.
+                A beginner's roadmap to CTF competitions: where to start, key domains, and how to crack
+                your first flag. Assumes basic Linux terminal familiarity.
             </p>
             <div class="guide-hero-buttons">
                 <a href="#getting-started" class="btn-3d">
@@ -114,9 +113,25 @@
             <h2 class="section-title reveal-text">Capture The Flag</h2>
             <p class="guide-prose">
                 CTF stands for <strong>"Capture The Flag."</strong> Since cybersecurity can be theory-heavy, CTFs
-                were created to gamify the learning experience. While understanding the underlying theory is
-                essential, your primary growth will come from the hands on process of solving these challenges.
+                were created to gamify the learning experience. Rather than reading textbooks, you solve hacking
+                puzzles — and the reward for solving each one is a <strong>flag</strong>: a special string you
+                submit to prove you cracked the challenge.
             </p>
+            <div class="guide-callout start">
+                <span class="material-symbols-outlined">flag</span>
+                <div class="guide-callout-body">
+                    <span class="guide-callout-tag">What a flag looks like</span>
+                    <p>
+                        Every challenge hides a flag — a text string in a specific format. You find it, you submit
+                        it, you get points. It usually looks like this:
+                    </p>
+                    <p><strong>picoCTF{y0u_f0und_the_secret_123}</strong></p>
+                    <p>
+                        Challenges come in many forms: a file to analyze, a website to hack, ciphertext to decode,
+                        or a binary to reverse. Each domain has its own style — all explained below.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <!-- Getting Started -->
@@ -129,15 +144,15 @@
             <h2 class="section-title reveal-text">Start Here</h2>
             <p class="guide-prose">
                 A great way to begin is by tackling picoCTF challenges, which are now hosted on CyLab Academy. Follow
-                this introductory learning path  it provides both instructional videos and basic challenges.
+                this introductory learning path — it provides both instructional videos and basic challenges.
             </p>
 
             <div class="guide-callout start">
                 <span class="material-symbols-outlined">flag</span>
                 <div class="guide-callout-body">
-                    <span class="guide-callout-tag">Start from here  beginner learning path</span>
+                    <span class="guide-callout-tag">Start from here — beginner learning path</span>
                     <p>
-                        For those who don't know anything yet  this path has videos, challenges, and docs, all in
+                        For those who don't know anything yet — this path has videos, challenges, and docs, all in
                         one place.
                     </p>
                     <p>
@@ -179,15 +194,16 @@
             </div>
             <h2 class="section-title reveal-text">How You'll Actually Learn</h2>
             <p class="guide-prose">
-                In CTFs you learn by solving, you'll pick up new tools while working through challenges, not before.
-                So just start: watch a tutorial, ask AI, and look for challenge <strong>writeups</strong> (a
-                writeup is the solution someone publishes after solving a challenge, you'll also be required to
-                write these for recCTF later).
+                In CTFs you learn by solving — you'll pick up new tools while working through challenges, not before.
+                So just start: watch a tutorial, ask AI, and look for challenge <strong>writeups</strong>.
+                A writeup is the solution someone publishes after solving a challenge. You read it, understand it,
+                then try to replicate it yourself. You'll also be required to write your own writeups for
+                <strong>recCTF</strong> — the EHAX recruitment CTF (more on that below).
             </p>
             <p class="guide-prose">
                 If you don't know how to solve a challenge, read its writeup. If it mentions a tool you don't know
                 about, learn how that tool works with a quick YouTube video, then come back and retry the challenge.
-                You can also ask anything in the group, your seniors are always there to help. Don't be shy to ask
+                You can also ask anything in the group — your seniors are always there to help. Don't be shy to ask
                 or discuss; showing interest and actually going through problems is exactly what gets you noticed,
                 and it earns brownie points for recruitment.
             </p>
@@ -211,7 +227,8 @@
             </div>
             <h2 class="section-title reveal-text">CTF Domains</h2>
             <p class="guide-prose" style="margin-bottom: 32px;">
-                Use hints, refer to writeups, and ask doubts in the group  that's how everyone learns these.
+                Use hints, refer to writeups, and ask doubts in the group — that's how everyone learns these.
+                We recommend this order for beginners: <strong>Web → Forensics → Crypto → Rev → Pwn</strong>.
             </p>
 
             <div class="guide-domains">
@@ -222,6 +239,7 @@
                             <span class="material-symbols-outlined">language</span>
                         </div>
                         <h3>Web Exploitation</h3>
+                        <span class="guide-domain-order">Start Here</span>
                     </div>
                     <p class="guide-domain-desc">
                         Uncovering security vulnerabilities in web applications. This might involve performing SQL
@@ -241,7 +259,7 @@
                         <div class="guide-callout-body">
                             <p>
                                 <strong>Note:</strong> Do all the easy web challenges on CyLab. While solving them,
-                                pick up Burp Suite and Chrome DevTools along the way  watch videos as you go, and
+                                pick up Burp Suite and Chrome DevTools along the way — watch videos as you go, and
                                 ask in the group if you get stuck.
                             </p>
                         </div>
@@ -255,10 +273,11 @@
                             <span class="material-symbols-outlined">search</span>
                         </div>
                         <h3>Forensics</h3>
+                        <span class="guide-domain-order">Start Here</span>
                     </div>
                     <p class="guide-domain-desc">
                         Investigating digital artifacts like file headers, network captures, or memory dumps to
-                        uncover hidden secrets  much like a digital crime scene investigator.
+                        uncover hidden secrets — much like a digital crime scene investigator.
                     </p>
                     <div class="guide-domain-links">
                         <a class="guide-link-row" href="https://learn.cylabacademy.org/learning-paths/16" target="_blank" rel="noopener noreferrer">
@@ -288,6 +307,7 @@
                             <span class="material-symbols-outlined">key</span>
                         </div>
                         <h3>Cryptography</h3>
+                        <span class="guide-domain-order order-then">Then</span>
                     </div>
                     <p class="guide-domain-desc">
                         The study of codes and ciphers. You will learn how to identify different types of encryption
@@ -302,6 +322,17 @@
                             </span>
                         </a>
                     </div>
+                    <div class="guide-callout domain-note">
+                        <span class="material-symbols-outlined">lightbulb</span>
+                        <div class="guide-callout-body">
+                            <p>
+                                <strong>Tip:</strong> Bookmark
+                                <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">CyberChef</a>
+                                — it's your Swiss army knife for crypto. Paste ciphertext and it auto-detects
+                                common encodings like Base64, ROT13, Hex, and more.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Reverse Engineering -->
@@ -311,6 +342,7 @@
                             <span class="material-symbols-outlined">memory</span>
                         </div>
                         <h3>Reverse Engineering</h3>
+                        <span class="guide-domain-order order-then">Then</span>
                     </div>
                     <p class="guide-domain-desc">
                         Analyzing software to understand its inner workings, often without access to the source
@@ -363,12 +395,12 @@
                             <span class="material-symbols-outlined">terminal</span>
                         </div>
                         <h3>Binary Exploitation (Pwn)</h3>
-                        <span class="guide-domain-warn">Harder  do this at last prefer to do it after REV ☠️</span>
+                        <span class="guide-domain-warn">Advanced — do after REV ☠️</span>
                     </div>
                     <p class="guide-domain-desc">
                         Finding and exploiting flaws in compiled software or binaries (such as buffer overflows) to
-                        gain unauthorized control of a system. On the harder side  prefer finishing Forensics and
-                        Web before touching this.
+                        gain unauthorized control of a system. On the harder side — prefer finishing Forensics,
+                        Web, and Rev before touching this.
                     </p>
                     <div class="guide-domain-links">
                         <a class="guide-link-row" href="https://learn.cylabacademy.org/learning-paths/2" target="_blank" rel="noopener noreferrer">
@@ -413,19 +445,90 @@
                     </div>
                     <span class="material-symbols-outlined contact-arrow">north_east</span>
                 </a>
+                <a class="contact-item" data-tilt href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon-box">
+                        <span class="material-symbols-outlined">construction</span>
+                    </div>
+                    <div class="contact-text-content">
+                        <span class="contact-label">Must-Have Tool</span>
+                        <span class="contact-value">CyberChef</span>
+                    </div>
+                    <span class="material-symbols-outlined contact-arrow">north_east</span>
+                </a>
+                <a class="contact-item" data-tilt href="https://tryhackme.com/" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon-box">
+                        <span class="material-symbols-outlined">computer</span>
+                    </div>
+                    <div class="contact-text-content">
+                        <span class="contact-label">Practice Platform</span>
+                        <span class="contact-value">TryHackMe</span>
+                    </div>
+                    <span class="material-symbols-outlined contact-arrow">north_east</span>
+                </a>
             </div>
             <p class="guide-prose" style="margin-top: 20px;">
-                CTF101 is a great overview of common CTF concepts  it's a bit tough to follow end-to-end, but is
+                CTF101 is a great overview of common CTF concepts — it's a bit tough to follow end-to-end, but is
                 great to refer back to for specific subtopics. The CyLab Primer has detailed documentation for
-                reference.
+                reference. CyberChef is your go-to for encoding/decoding anything.
             </p>
 
+        </section>
+
+        <!-- Recruitment Rounds -->
+        <section id="recruitment" class="section-container">
+            <div class="section-header-animated">
+                <span class="section-tag">06</span>
+                <div class="section-line"></div>
+                <span class="section-label">RECRUITMENT PROCESS</span>
+            </div>
+            <h2 class="section-title reveal-text">recCTF &amp; Rounds</h2>
+            <p class="guide-prose">
+                <strong>recCTF</strong> is EHAX's own recruitment CTF — a 24-hour online competition where you solve
+                challenges, write writeups, and show us what you've got. It's how we recruit new members every year.
+            </p>
+
+            <div class="guide-steps">
+                <div class="guide-step">
+                    <span class="guide-step-num">1</span>
+                    <div class="guide-step-body">
+                        <h4>Round 1 — 24-Hour Online CTF &nbsp;<span style="font-weight:400;color:var(--text-muted);font-size:12px;">22–23 August 2026</span></h4>
+                        <p>Solve cybersecurity challenges across all domains. Writeups are an important part of this round — document how you solved each challenge.</p>
+                    </div>
+                </div>
+                <div class="guide-step">
+                    <span class="guide-step-num">2</span>
+                    <div class="guide-step-body">
+                        <h4>Round 2 — Technical Task</h4>
+                        <p>Candidates shortlisted from Round 1 will be given a technical task to complete.</p>
+                    </div>
+                </div>
+                <div class="guide-step">
+                    <span class="guide-step-num">3</span>
+                    <div class="guide-step-body">
+                        <h4>Round 3 — Interview with Seniors</h4>
+                        <p>Based on your CTF performance, technical tasks, and basic cybersecurity concepts. Show us you understand what you solved.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-callout" style="margin-top: 32px;">
+                <span class="material-symbols-outlined">how_to_reg</span>
+                <div class="guide-callout-body">
+                    <span class="guide-callout-tag">Register now</span>
+                    <p>Sign up for recCTF and join the Discord to access resources shared in the channels.</p>
+                    <p>
+                        <a href="https://forms.gle/KX5BaBVNQHDdgzUf6" target="_blank" rel="noopener noreferrer">Registration Form →</a>
+                        &nbsp;&nbsp;
+                        <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer">Discord →</a>
+                    </p>
+                </div>
+            </div>
         </section>
 
         <!-- Final Note -->
         <section id="final-note" class="section-container">
             <div class="section-header-animated">
-                <span class="section-tag">06</span>
+                <span class="section-tag">07</span>
                 <div class="section-line"></div>
                 <span class="section-label">FINAL NOTE</span>
             </div>
@@ -433,17 +536,17 @@
                 <h3>Ready for Recruitment</h3>
                 <p>
                     To be considered for recruitment, we strongly recommend completing <strong>at least all the easy
-                    challenges of each category</strong>  majorly Web, Crypto, Forensics, Rev, and Bin  on CyLab
-                    Academy. We are all here to help you succeed  good luck!
+                    challenges of each category</strong> — majorly Web, Crypto, Forensics, Rev, and Bin — on CyLab
+                    Academy. We are all here to help you succeed — good luck!
                 </p>
                 <div class="guide-hero-buttons">
-                    <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer" class="btn-3d">
-                        <span class="material-symbols-outlined">terminal</span>
-                        <span>Join EHAX Discord</span>
+                    <a href="https://forms.gle/KX5BaBVNQHDdgzUf6" target="_blank" rel="noopener noreferrer" class="btn-3d">
+                        <span class="material-symbols-outlined">how_to_reg</span>
+                        <span>Register for recCTF</span>
                     </a>
-                    <a href="../index.html" class="btn-glass">
-                        <span class="material-symbols-outlined">home</span>
-                        <span>Back to Home</span>
+                    <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer" class="btn-glass">
+                        <span class="material-symbols-outlined">forum</span>
+                        <span>Join Discord</span>
                     </a>
                 </div>
             </div>
