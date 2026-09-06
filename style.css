@@ -3601,8 +3601,48 @@ a {
 }
 
 @media (max-width: 767px) {
-  .entry-grid {
-    grid-template-columns: minmax(0, 1fr);
+  /* Phones: cards become a swipeable row (next card peeks in from the right)
+     instead of a 2,000px+ stack. Full-bleed to the screen edge with the
+     section's own padding as the inset. */
+  .entry-grid,
+  .ach-featured {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 84%;
+    grid-template-columns: none;
+    gap: 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    margin: 0 -20px;
+    padding: 4px 20px 14px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .entry-grid::-webkit-scrollbar,
+  .ach-featured::-webkit-scrollbar {
+    display: none;
+  }
+
+  .entry-card,
+  .ach-card {
+    scroll-snap-align: start;
+    min-height: 0;
+  }
+
+  .ach-featured {
+    margin-bottom: 8px;
+  }
+
+  .ach-card {
+    padding: 22px;
+    gap: 10px;
+  }
+
+  .ach-year {
+    font-size: 32px;
   }
 
   .entry-card {
@@ -3872,14 +3912,34 @@ a {
   }
 
   .contact-item {
-    padding: 18px;
-    gap: 14px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  /* Smaller icon, no arrow: the address gets the width and stays on one line */
+  .contact-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .contact-icon-box .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  .contact-arrow {
+    display: none;
   }
 
   .contact-value {
     white-space: normal;
-    overflow-wrap: anywhere;
-    font-size: 14px;
+    overflow-wrap: break-word;
+    word-break: normal;
+    font-size: 13.5px;
+  }
+
+  .contact-cta p {
+    font-size: 12px;
   }
 
   .contact-cta {
