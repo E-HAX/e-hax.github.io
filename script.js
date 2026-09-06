@@ -4,116 +4,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
-  // MILKY WAY STAR CLUSTER
-  // ==========================================
-  class MilkyWay {
-    constructor(canvas) {
-      this.canvas = canvas;
-      this.ctx = canvas.getContext("2d");
-      this.stars = [];
-      this.scrollY = 0;
-      this.baseSize = Math.min(window.innerWidth * 0.8, 800);
-      this.resize();
-      this.init();
-      this.animate();
-
-      window.addEventListener("resize", () => this.resize());
-      window.addEventListener("scroll", () => {
-        this.scrollY = window.scrollY;
-      }, { passive: true });
-    }
-
-    resize() {
-      const size = this.baseSize * 2;
-      this.canvas.width = size;
-      this.canvas.height = size;
-      this.canvas.style.width = this.baseSize + "px";
-      this.canvas.style.height = this.baseSize + "px";
-    }
-
-    init() {
-      this.stars = [];
-      const count = window.innerWidth < 768 ? 400 : 800;
-
-      for (let i = 0; i < count; i++) {
-        const angle = Math.random() * Math.PI * 2;
-        const radius = Math.pow(Math.random(), 0.6) * this.baseSize;
-        const spread = (Math.random() - 0.5) * this.baseSize * 0.3;
-
-        this.stars.push({
-          x: this.canvas.width / 2 + Math.cos(angle) * radius + spread * Math.sin(angle * 2),
-          y: this.canvas.height / 2 + Math.sin(angle) * radius * 0.4 + spread * Math.cos(angle),
-          size: Math.random() * 2 + 0.3,
-          opacity: Math.random() * 0.6 + 0.1,
-          twinkleSpeed: Math.random() * 0.02 + 0.005,
-          twinkleOffset: Math.random() * Math.PI * 2,
-        });
-      }
-
-      // Core glow stars
-      for (let i = 0; i < 30; i++) {
-        const angle = Math.random() * Math.PI * 2;
-        const radius = Math.random() * this.baseSize * 0.15;
-        this.stars.push({
-          x: this.canvas.width / 2 + Math.cos(angle) * radius,
-          y: this.canvas.height / 2 + Math.sin(angle) * radius * 0.4,
-          size: Math.random() * 3 + 2,
-          opacity: Math.random() * 0.4 + 0.3,
-          twinkleSpeed: Math.random() * 0.03 + 0.01,
-          twinkleOffset: Math.random() * Math.PI * 2,
-          glow: true,
-        });
-      }
-    }
-
-    animate() {
-      const time = performance.now() * 0.001;
-      const heroHeight = window.innerHeight;
-      const scrollProgress = Math.min(this.scrollY / heroHeight, 3);
-      const scale = 1 + scrollProgress * 0.8;
-      const opacity = Math.max(1 - scrollProgress * 0.3, 0.3);
-      const rotation = time * 0.02;
-
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      this.ctx.save();
-      this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
-      this.ctx.rotate(rotation);
-      this.ctx.scale(scale, scale);
-      this.ctx.translate(-this.canvas.width / 2, -this.canvas.height / 2);
-      this.ctx.globalAlpha = opacity;
-
-      this.stars.forEach((star) => {
-        const twinkle = Math.sin(time * star.twinkleSpeed * 20 + star.twinkleOffset) * 0.5 + 0.5;
-        const alpha = star.opacity * twinkle;
-
-        if (star.glow) {
-          const gradient = this.ctx.createRadialGradient(
-            star.x, star.y, 0,
-            star.x, star.y, star.size * 4
-          );
-          gradient.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
-          gradient.addColorStop(0.5, `rgba(200, 200, 220, ${alpha * 0.3})`);
-          gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
-          this.ctx.fillStyle = gradient;
-          this.ctx.beginPath();
-          this.ctx.arc(star.x, star.y, star.size * 4, 0, Math.PI * 2);
-          this.ctx.fill();
-        }
-
-        this.ctx.beginPath();
-        this.ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-        this.ctx.fill();
-      });
-
-      this.ctx.restore();
-      requestAnimationFrame(() => this.animate());
-    }
-  }
-
-  const milkywayCanvas = document.getElementById("milkywayCanvas");
-  if (milkywayCanvas) new MilkyWay(milkywayCanvas);
-  // ==========================================
   // PARTICLE SYSTEM
   // ==========================================
   class ParticleSystem {
@@ -378,102 +268,163 @@ document.addEventListener("DOMContentLoaded", () => {
   new TiltEffect();
 
   // ==========================================
-  // HERO 3D LOGO - ELASTIC DRAG & SNAP-BACK
+  // HERO - WIRE GLOBE + MOUSE PARALLAX
   // ==========================================
-  const heroLogo = document.getElementById("heroLogo3D");
-  if (heroLogo) {
-    let isDragging = false;
-    let startX = 0, startY = 0;
-    let targetRotX = 0, targetRotY = 0;
-    let currentRotX = 0, currentRotY = 0;
-    let velX = 0, velY = 0;
+  class WireGlobe {
+    constructor(canvas, hero) {
+      this.canvas = canvas;
+      this.hero = hero;
+      this.ctx = canvas.getContext("2d");
+      this.size = 640;
+      this.count = 380;
+      this.buckets = 7;
+      this.points = [];
+      this.edges = [];
+      this.projected = [];
+      this.tx = 0; this.ty = 0; // target parallax (-1..1)
+      this.mx = 0; this.my = 0; // eased parallax
+      this.raf = 0;
+      this.t0 = null;
+      this.visible = true;
+      this.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const animate = () => {
-      if (isDragging) {
-        currentRotX += (targetRotX - currentRotX) * 0.25;
-        currentRotY += (targetRotY - currentRotY) * 0.25;
-        velX = 0;
-        velY = 0;
-      } else {
-        // Subtle elastic spring physics returning to centered position (0, 0)
-        const stiffness = 0.07;
-        const damping = 0.85;
+      this.setup();
+      this.buildMesh();
+      this.bind();
+      this.start();
+    }
 
-        const forceX = (0 - currentRotX) * stiffness;
-        const forceY = (0 - currentRotY) * stiffness;
+    setup() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      this.canvas.width = this.size * dpr;
+      this.canvas.height = this.size * dpr;
+      this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
 
-        velX = (velX + forceX) * damping;
-        velY = (velY + forceY) * damping;
+    buildMesh() {
+      // Fibonacci sphere: evenly spread points, then connect near neighbours.
+      const golden = Math.PI * (3 - Math.sqrt(5));
+      for (let i = 0; i < this.count; i++) {
+        const y = 1 - (i / (this.count - 1)) * 2;
+        const r = Math.sqrt(1 - y * y);
+        const theta = golden * i;
+        this.points.push([Math.cos(theta) * r, y, Math.sin(theta) * r]);
+      }
+      for (let a = 0; a < this.count; a++) {
+        for (let b = a + 1; b < this.count; b++) {
+          const dx = this.points[a][0] - this.points[b][0];
+          const dy = this.points[a][1] - this.points[b][1];
+          const dz = this.points[a][2] - this.points[b][2];
+          if (dx * dx + dy * dy + dz * dz < 0.085) this.edges.push([a, b]);
+        }
+      }
+      this.projected = new Array(this.count);
+    }
 
-        currentRotX += velX;
-        currentRotY += velY;
+    bind() {
+      this.hero.addEventListener("mousemove", (e) => {
+        const rect = this.hero.getBoundingClientRect();
+        this.tx = ((e.clientX - rect.left) / Math.max(rect.width, 1)) * 2 - 1;
+        this.ty = Math.min(((e.clientY - rect.top) / Math.max(rect.height, 1)) * 2 - 1, 1);
+      });
+      this.hero.addEventListener("mouseleave", () => {
+        this.tx = 0;
+        this.ty = 0;
+      });
 
-        targetRotX = currentRotX;
-        targetRotY = currentRotY;
+      // Only animate while the hero is on screen.
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            this.visible = entry.isIntersecting;
+            if (this.visible && !this.raf && !this.reduced) this.start();
+          });
+        }, { threshold: 0.05 });
+        io.observe(this.hero);
+      }
+    }
+
+    draw(t) {
+      const ctx = this.ctx;
+      const W = this.size, H = this.size;
+      const N = this.count;
+
+      this.mx += (this.tx - this.mx) * 0.06;
+      this.my += (this.ty - this.my) * 0.06;
+      this.hero.style.setProperty("--mx", this.mx.toFixed(3));
+      this.hero.style.setProperty("--my", this.my.toFixed(3));
+
+      const ay = t * 0.22 + this.mx * 0.7;
+      const ax = -0.42 + this.my * 0.35;
+      const cy = Math.cos(ay), sy = Math.sin(ay), cx = Math.cos(ax), sx = Math.sin(ax);
+      const R = 236, F = 3.4, ox = W / 2, oy = H / 2;
+
+      for (let i = 0; i < N; i++) {
+        const p = this.points[i];
+        const x1 = p[0] * cy + p[2] * sy;
+        const z1 = -p[0] * sy + p[2] * cy;
+        const y2 = p[1] * cx - z1 * sx;
+        const z2 = p[1] * sx + z1 * cx;
+        const s = F / (F - z2);
+        this.projected[i] = [ox + x1 * R * s, oy + y2 * R * s, z2];
       }
 
-      heroLogo.style.transform = `
-        rotateX(${currentRotX}deg)
-        rotateY(${currentRotY}deg)
-      `;
+      ctx.clearRect(0, 0, W, H);
 
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    heroLogo.style.cursor = "grab";
-
-    heroLogo.addEventListener("mousedown", (e) => {
-      isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
-      heroLogo.style.cursor = "grabbing";
-    });
-
-    heroLogo.addEventListener("touchstart", (e) => {
-      isDragging = true;
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      heroLogo.style.cursor = "grabbing";
-    }, { passive: true });
-
-    window.addEventListener("mousemove", (e) => {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-      targetRotY += dx * 0.45;
-      targetRotX -= dy * 0.45;
-      targetRotX = Math.max(-75, Math.min(75, targetRotX));
-      targetRotY = Math.max(-100, Math.min(100, targetRotY));
-      startX = e.clientX;
-      startY = e.clientY;
-    });
-
-    window.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      const dx = e.touches[0].clientX - startX;
-      const dy = e.touches[0].clientY - startY;
-      targetRotY += dx * 0.45;
-      targetRotX -= dy * 0.45;
-      targetRotX = Math.max(-75, Math.min(75, targetRotX));
-      targetRotY = Math.max(-100, Math.min(100, targetRotY));
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-    }, { passive: true });
-
-    const stopDrag = () => {
-      if (isDragging) {
-        isDragging = false;
-        heroLogo.style.cursor = "grab";
+      // Edges, batched by depth so alpha and width fade toward the back.
+      for (let k = 0; k < this.buckets; k++) {
+        const lo = -1 + (2 * k) / this.buckets;
+        const hi = -1 + (2 * (k + 1)) / this.buckets;
+        const depth = ((lo + hi) / 2 + 1) / 2;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${(0.035 + depth * 0.30).toFixed(3)})`;
+        ctx.lineWidth = 0.5 + depth * 0.7;
+        ctx.beginPath();
+        for (let e = 0; e < this.edges.length; e++) {
+          const A = this.projected[this.edges[e][0]];
+          const B = this.projected[this.edges[e][1]];
+          const z = (A[2] + B[2]) / 2;
+          if (z < lo || z >= hi) continue;
+          ctx.moveTo(A[0], A[1]);
+          ctx.lineTo(B[0], B[1]);
+        }
+        ctx.stroke();
       }
-    };
 
-    window.addEventListener("mouseup", stopDrag);
-    window.addEventListener("mouseleave", stopDrag);
-    window.addEventListener("touchend", stopDrag);
-    window.addEventListener("touchcancel", stopDrag);
+      // Points.
+      for (let k = 0; k < this.buckets; k++) {
+        const lo = -1 + (2 * k) / this.buckets;
+        const hi = -1 + (2 * (k + 1)) / this.buckets;
+        const depth = ((lo + hi) / 2 + 1) / 2;
+        const size = 0.8 + depth * 1.5;
+        ctx.fillStyle = `rgba(255, 255, 255, ${(0.12 + depth * 0.75).toFixed(3)})`;
+        ctx.beginPath();
+        for (let i = 0; i < N; i++) {
+          const q = this.projected[i];
+          if (q[2] < lo || q[2] >= hi) continue;
+          ctx.moveTo(q[0] + size, q[1]);
+          ctx.arc(q[0], q[1], size, 0, Math.PI * 2);
+        }
+        ctx.fill();
+      }
+    }
+
+    start() {
+      const frame = (now) => {
+        if (this.t0 === null) this.t0 = now;
+        this.draw((now - this.t0) / 1000);
+        if (this.reduced || !this.visible) {
+          this.raf = 0;
+          return;
+        }
+        this.raf = requestAnimationFrame(frame);
+      };
+      this.raf = requestAnimationFrame(frame);
+    }
   }
+
+  const globeCanvas = document.getElementById("globeCanvas");
+  const heroSection = document.getElementById("hero");
+  if (globeCanvas && heroSection) new WireGlobe(globeCanvas, heroSection);
 
   // ==========================================
   // COUNTER ANIMATION
@@ -532,15 +483,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const textTypeEl = document.getElementById("textTypeContent");
   if (textTypeEl) {
     const texts = [
-      "Web Exploitation",
-      "Binary Exploitation",
-      "Reverse Engineering",
-      "Cryptography",
-      "Hardware / IoT",
-      "Cloud Infrastructure",
-      "Mobile Security",
-      "Offensive Tooling",
-      "AI Security"
+      "web exploitation",
+      "binary exploitation",
+      "reverse engineering",
+      "cryptography",
+      "hardware / iot",
+      "cloud infrastructure",
+      "mobile security",
+      "offensive tooling",
+      "ai security"
     ];
 
     const typingSpeed = 65;
@@ -579,27 +530,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     typeLoop();
   }
-
-  // ==========================================
-  // PARALLAX ON SCROLL
-  // ==========================================
-  let ticking = false;
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-        const shapes = document.querySelectorAll(".floating-shape");
-
-        shapes.forEach((shape, i) => {
-          const speed = (i + 1) * 0.02;
-          shape.style.transform = `translateY(${scrollY * speed}px)`;
-        });
-
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
 
   // ==========================================
   // CURSOR GLOW EFFECT (DESKTOP ONLY)

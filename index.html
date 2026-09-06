@@ -81,63 +81,33 @@
     <main>
         <!-- Hero Section -->
         <section class="hero" id="hero">
-            <div class="hero-bg-shapes">
-                <div class="floating-shape shape-1"></div>
-                <div class="floating-shape shape-2"></div>
-                <div class="floating-shape shape-3"></div>
-                <div class="floating-shape shape-4"></div>
-                <div class="floating-shape shape-5"></div>
-            </div>
+            <div class="hero-bg"></div>
+            <div class="hero-dots"></div>
+            <div class="hero-floor"><div class="hero-floor-grid"></div></div>
 
-            <canvas id="milkywayCanvas" class="milkyway-canvas"></canvas>
-
-            <div class="hero-orbits">
-                <div class="orbit orbit-1">
-                    <div class="planet planet-1"></div>
-                </div>
-                <div class="orbit orbit-2">
-                    <div class="planet planet-2"></div>
-                </div>
-                <div class="orbit orbit-3">
-                    <div class="planet planet-3"></div>
-                </div>
-                <div class="orbit orbit-4">
-                    <div class="planet planet-4"></div>
-                    <div class="planet planet-5"></div>
-                </div>
-            </div>
-
-            <div class="hero-content">
-                <div class="hero-3d-scene">
-                    <div class="hero-logo-wrapper" id="heroLogo3D">
-                        <div class="hero-logo-3d">
-                            <div class="logo-face logo-front">
-                                <img src="./logo.png" alt="EHAX Logo" class="hero-logo-img">
-                            </div>
-                            <div class="logo-face logo-back">
-                                <img src="./logo.png" alt="EHAX Logo" class="hero-logo-img">
-                            </div>
-                            <div class="logo-face logo-left"></div>
-                            <div class="logo-face logo-right"></div>
-                            <div class="logo-face logo-top"></div>
-                            <div class="logo-face logo-bottom"></div>
-                        </div>
-                        <div class="logo-glow"></div>
-                        <div class="logo-ring ring-1"></div>
-                        <div class="logo-ring ring-2"></div>
-                        <div class="logo-ring ring-3"></div>
-                    </div>
-                </div>
-
-                <div class="hero-text-block">
-                    <div class="hero-title-wrapper">
-                        <h1 class="hero-title">
-                            <span id="textTypeContent">Web Exploitation</span><span class="text-type-cursor">|</span>
-                        </h1>
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <div class="hero-prompt"><span class="prompt-dot"></span><span>root@ehax:~# whoami</span></div>
+                    <h1 class="hero-title">Cybersecurity<br>team of <span class="dim">DTU.</span></h1>
+                    <div class="hero-typer">
+                        <span class="typer-label">&gt; currently breaking:</span>
+                        <span class="typer-text"><span id="textTypeContent">web exploitation</span><span class="text-type-cursor">|</span></span>
                     </div>
                     <p class="hero-subtitle">
-                        EHAX is the cybersecurity team of Delhi Technological University
+                        EHAX is the official cybersecurity team of Delhi Technological University. We operate at the
+                        intersection of theoretical research and practical exploitation: CTFs, vulnerability research,
+                        workshops and red-team tooling.
                     </p>
+                    <div class="hero-buttons">
+                        <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer" class="btn-3d">
+                            <span class="material-symbols-outlined">terminal</span>
+                            <span>Join EHAX</span>
+                        </a>
+                        <a href="./guide/index.html" class="btn-glass">
+                            <span>Start with EHAX101</span>
+                            <span class="material-symbols-outlined">arrow_outward</span>
+                        </a>
+                    </div>
                     <div class="hero-stats">
                         <div class="hero-stat" data-value="50">
                             <span class="stat-num">0</span>
@@ -147,22 +117,49 @@
                             <span class="stat-num">0</span>
                             <span class="stat-label">Active Members</span>
                         </div>
-                        <div class="hero-stat" data-value="3">
-                            <span class="stat-num">0</span>
-                            <span class="stat-label">Years Active</span>
-                        </div>
-                    </div>
-                    <div class="hero-buttons">
-                        <a href="#about" class="btn-3d">
-                            <span>Explore</span>
-                            <span class="material-symbols-outlined">arrow_downward</span>
-                        </a>
-                        <a href="https://discord.gg/ufqRqf6J9h" target="_blank" rel="noopener noreferrer" class="btn-glass">
-                            <span class="material-symbols-outlined">terminal</span>
-                            <span>Join EHAX</span>
-                        </a>
                     </div>
                 </div>
+
+                <div class="hero-scene" id="heroScene" aria-hidden="true">
+                    <div class="scene-glow"></div>
+                    <canvas id="globeCanvas" class="scene-canvas" width="640" height="640"></canvas>
+                    <div class="orbits">
+                        <div class="orbit orbit-1">
+                            <div class="planet planet-1"></div>
+                            <div class="planet planet-3"></div>
+                        </div>
+                        <div class="orbit orbit-2">
+                            <div class="planet planet-2"></div>
+                        </div>
+                        <div class="orbit orbit-3">
+                            <div class="planet planet-4"></div>
+                        </div>
+                    </div>
+                    <div class="tess">
+                        <div class="cube cube-out">
+                            <div class="face f1"></div>
+                            <div class="face f2"></div>
+                            <div class="face f3"></div>
+                            <div class="face f4"></div>
+                            <div class="face f5"></div>
+                            <div class="face f6"></div>
+                        </div>
+                        <div class="cube cube-in">
+                            <div class="face f1"></div>
+                            <div class="face f2"></div>
+                            <div class="face f3"></div>
+                            <div class="face f4"></div>
+                            <div class="face f5"></div>
+                            <div class="face f6"></div>
+                        </div>
+                    </div>
+                    <img src="./ehax-wordmark.png" alt="" class="hero-mark">
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <span>SCROLL</span>
+                <div class="scroll-line"></div>
             </div>
         </section>
 
@@ -178,8 +175,8 @@
                     <h2 class="section-title reveal-text">Technical<br>Directive</h2>
                     <div class="about-stats">
                         <div class="about-stat-card">
-                            <span class="about-stat-num">15+</span>
-                            <span class="about-stat-label">CVEs Found</span>
+                            <span class="about-stat-num">3+</span>
+                            <span class="about-stat-label">Years Active</span>
                         </div>
                         <div class="about-stat-card">
                             <span class="about-stat-num">30+</span>
