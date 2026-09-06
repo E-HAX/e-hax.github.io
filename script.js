@@ -431,6 +431,60 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroSection = document.getElementById("hero");
   if (globeCanvas && heroSection) new WireGlobe(globeCanvas, heroSection);
 
+  // Pointer parallax for the server rack in the About section
+  class PointerParallax {
+    constructor(el) {
+      this.el = el;
+      this.tx = 0; this.ty = 0;
+      this.mx = 0; this.my = 0;
+      this.raf = 0;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      el.addEventListener("mousemove", (e) => {
+        const rect = el.getBoundingClientRect();
+        this.tx = ((e.clientX - rect.left) / Math.max(rect.width, 1)) * 2 - 1;
+        this.ty = ((e.clientY - rect.top) / Math.max(rect.height, 1)) * 2 - 1;
+        this.kick();
+      });
+      el.addEventListener("mouseleave", () => {
+        this.tx = 0;
+        this.ty = 0;
+        this.kick();
+      });
+    }
+
+    kick() {
+      if (!this.raf) this.raf = requestAnimationFrame(() => this.step());
+    }
+
+    step() {
+      this.mx += (this.tx - this.mx) * 0.08;
+      this.my += (this.ty - this.my) * 0.08;
+      this.el.style.setProperty("--mx", this.mx.toFixed(3));
+      this.el.style.setProperty("--my", this.my.toFixed(3));
+      const settled = Math.abs(this.tx - this.mx) < 0.002 && Math.abs(this.ty - this.my) < 0.002;
+      this.raf = settled ? 0 : requestAnimationFrame(() => this.step());
+    }
+  }
+
+  const rackScene = document.getElementById("rackScene");
+  if (rackScene) new PointerParallax(rackScene);
+
+  // Rack drawers: click (or Enter / Space) pulls a blade out or pushes it back
+  document.querySelectorAll("#rackScene .unit").forEach((blade) => {
+    const toggle = () => {
+      const open = blade.classList.toggle("is-out");
+      blade.setAttribute("aria-pressed", String(open));
+    };
+    blade.addEventListener("click", toggle);
+    blade.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+
   // ==========================================
   // COUNTER ANIMATION
   // ==========================================
@@ -620,5 +674,301 @@ document.addEventListener("DOMContentLoaded", () => {
     ringStage.addEventListener("touchstart", handleDown, { passive: true });
     window.addEventListener("touchmove", handleMove, { passive: true });
     window.addEventListener("touchend", handleUp);
+  }
+
+  // ==========================================
+  // FOOTER SOC ROOM - VIDEO WALL ANALYTICS
+  // ==========================================
+  const socTiles = document.querySelectorAll(".soc-tile");
+  const socEls = {
+    name: document.getElementById("socFeedName"),
+    code: document.getElementById("socFeedCode"),
+    log: document.getElementById("socLog"),
+    line: document.getElementById("socLine"),
+    area: document.getElementById("socArea"),
+    headDot: document.getElementById("socHeadDot"),
+    events: document.getElementById("socKpiEvents"),
+    sev: document.getElementById("socKpiSev"),
+    blocked: document.getElementById("socKpiBlocked"),
+    gaugeArc: document.getElementById("socGaugeArc"),
+    gaugeValue: document.getElementById("socGaugeValue"),
+    sources: document.getElementById("socSources"),
+    ticker: document.getElementById("socTicker"),
+  };
+  const socDesks = Array.from(document.querySelectorAll(".soc-desk"));
+
+  if (socTiles.length && socEls.name && socEls.line) {
+    // Illustrative telemetry for the video wall, one profile per domain.
+    const SOC_FEEDS = [
+      {
+        name: "Web Exploitation",
+        events: 1284, sev: 6.4, blocked: 92, risk: 6.8, seed: 11, spike: 0.75,
+        sources: [["edge-01", 74], ["waf-eu", 58], ["api-gw", 41], ["cdn-in", 22]],
+        lines: ["payload: ' OR 1=1 -- on /login", "waf rule 942100 matched x37"],
+      },
+      {
+        name: "Binary Exploitation",
+        events: 342, sev: 8.1, blocked: 61, risk: 8.4, seed: 29, spike: 0.35,
+        sources: [["pwn-jail", 88], ["ctf-vm", 45], ["fuzz-01", 30], ["sbx-04", 12]],
+        lines: ["heap chunk 0x5651a0 overflow", "rop chain: pop rdi ; ret"],
+      },
+      {
+        name: "Reverse Engineering",
+        events: 168, sev: 5.2, blocked: 44, risk: 5.1, seed: 47, spike: 0.2,
+        sources: [["sample-q", 66], ["unpack", 52], ["emul-02", 28], ["yara", 19]],
+        lines: ["unpacking upx section .text", "anti-debug: ptrace bypassed"],
+      },
+      {
+        name: "Cryptography",
+        events: 96, sev: 4.6, blocked: 38, risk: 4.2, seed: 63, spike: 0.15,
+        sources: [["tls-scan", 71], ["keystore", 40], ["rng-mon", 24], ["pki", 15]],
+        lines: ["aes-ecb block repeat detected", "nonce reuse in chacha20 stream"],
+      },
+      {
+        name: "Cloud Infrastructure",
+        events: 2210, sev: 7.3, blocked: 84, risk: 7.6, seed: 83, spike: 0.6,
+        sources: [["k8s-prod", 91], ["iam", 63], ["s3-audit", 47], ["vpc-flow", 26]],
+        lines: ["imds v1 reachable from pod", "s3 bucket: public list acl"],
+      },
+      {
+        name: "AI Security",
+        events: 508, sev: 6.9, blocked: 57, risk: 7.1, seed: 101, spike: 0.5,
+        sources: [["llm-gw", 79], ["rag-idx", 54], ["agent-1", 36], ["evals", 21]],
+        lines: ["prompt injection in tool output", "guardrail bypass: role swap"],
+      },
+    ];
+
+    const W = 620;
+    const H = 78;
+    const N = 48;
+
+    // Deterministic per-feed series, so a feed always draws the same shape.
+    const series = (feed) => {
+      let s = feed.seed;
+      const rand = () => {
+        s = (s * 1103515245 + 12345) % 2147483648;
+        return s / 2147483648;
+      };
+      const pts = [];
+      for (let i = 0; i < N; i++) {
+        const t = i / (N - 1);
+        const base = 0.42 + Math.sin(t * Math.PI * 2.4 + feed.seed) * 0.16;
+        const burst = Math.exp(-Math.pow((t - 0.68) * 5.2, 2)) * feed.spike;
+        pts.push(Math.max(0.05, Math.min(0.97, base + burst + (rand() - 0.5) * 0.13)));
+      }
+      return pts;
+    };
+
+    const paths = (pts) => {
+      const step = W / (N - 1);
+      const xy = pts.map((v, i) => [i * step, H - v * (H - 6) - 3]);
+      const d = xy.map(([x, y], i) => (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1)).join(" ");
+      return { line: d, area: d + " L" + W + " " + H + " L0 " + H + " Z", last: xy[xy.length - 1] };
+    };
+
+    // Count a readout up to its new value so switching feeds reads as live data.
+    const countTo = (el, target, decimals, suffix) => {
+      if (!el) return;
+      const from = parseFloat(el.textContent) || 0;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / 600, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = (from + (target - from) * eased).toFixed(decimals) + (suffix || "");
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const renderFeed = (index) => {
+      const feed = SOC_FEEDS[index];
+      if (!feed) return;
+
+      socEls.name.textContent = feed.name;
+      socEls.code.textContent = "FEED-" + String(index + 1).padStart(2, "0");
+
+      const p = paths(series(feed));
+      socEls.line.setAttribute("d", p.line);
+      if (socEls.area) socEls.area.setAttribute("d", p.area);
+      if (socEls.headDot) {
+        socEls.headDot.setAttribute("cx", p.last[0].toFixed(1));
+        socEls.headDot.setAttribute("cy", p.last[1].toFixed(1));
+      }
+
+      countTo(socEls.events, feed.events, 0);
+      countTo(socEls.sev, feed.sev, 1);
+      countTo(socEls.blocked, feed.blocked, 0, "%");
+      countTo(socEls.gaugeValue, feed.risk, 1);
+      if (socEls.gaugeArc) {
+        const circumference = 239;
+        socEls.gaugeArc.style.strokeDashoffset = String(circumference * (1 - feed.risk / 10));
+      }
+
+      if (socEls.sources) {
+        socEls.sources.innerHTML = "";
+        feed.sources.forEach(([label, pct]) => {
+          const row = document.createElement("div");
+          row.className = "soc-source";
+          const name = document.createElement("span");
+          name.textContent = label;
+          const track = document.createElement("span");
+          track.className = "soc-source-track";
+          const fill = document.createElement("span");
+          fill.className = "soc-source-fill";
+          fill.style.width = pct + "%";
+          track.appendChild(fill);
+          const value = document.createElement("span");
+          value.className = "soc-source-value";
+          value.textContent = pct;
+          row.append(name, track, value);
+          socEls.sources.appendChild(row);
+        });
+      }
+
+      if (socEls.log) {
+        socEls.log.innerHTML = "";
+        feed.lines.forEach((line) => {
+          const li = document.createElement("li");
+          const marker = document.createElement("b");
+          marker.textContent = "> ";
+          li.appendChild(marker);
+          li.appendChild(document.createTextNode(line));
+          socEls.log.appendChild(li);
+        });
+      }
+
+      socTiles.forEach((tile) => {
+        const active = Number(tile.dataset.feed) === index;
+        tile.classList.toggle("is-active", active);
+        tile.setAttribute("aria-pressed", String(active));
+      });
+
+      socDesks.forEach((desk) => {
+        desk.classList.toggle("is-active", Number(desk.dataset.feed) === index);
+      });
+
+      if (socEls.ticker) {
+        socEls.ticker.textContent = SOC_FEEDS.map((f, i) =>
+          "FEED-" + String(i + 1).padStart(2, "0") + " " + f.name + " · " + f.events + " ev/min · risk " + f.risk.toFixed(1)
+        ).join("   //   ");
+      }
+    };
+
+    socDesks.forEach((desk) => {
+      desk.addEventListener("click", () => renderFeed(Number(desk.dataset.feed)));
+    });
+
+    socTiles.forEach((tile) => {
+      tile.addEventListener("click", () => renderFeed(Number(tile.dataset.feed)));
+      tile.addEventListener("mouseenter", () => renderFeed(Number(tile.dataset.feed)));
+    });
+
+    renderFeed(0);
+  }
+
+  // ==========================================
+  // COUNCIL RIG - MEMBERS AS COMPONENTS
+  // ==========================================
+  const rig = document.getElementById("rig");
+
+  if (rig) {
+    const CLASSES = { lights: "is-lit", fans: "is-spinning" };
+
+    rig.querySelectorAll("[data-rig]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const cls = CLASSES[btn.dataset.rig];
+        if (!cls) return;
+        const on = rig.classList.toggle(cls);
+        btn.classList.toggle("is-on", on);
+        btn.setAttribute("aria-pressed", String(on));
+      });
+    });
+
+    // The case turns to follow the cursor across the section.
+    const pc = rig.querySelector(".pc");
+    const zone = rig.closest(".section-container") || rig;
+
+    if (pc && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      let tx = 0, ty = 0, mx = 0, my = 0, raf = 0;
+
+      const step = () => {
+        mx += (tx - mx) * 0.08;
+        my += (ty - my) * 0.08;
+        pc.style.setProperty("--ry", (38 + mx * 18).toFixed(2) + "deg");
+        pc.style.setProperty("--rx", (8 - my * 8).toFixed(2) + "deg");
+        raf = Math.abs(tx - mx) < 0.002 && Math.abs(ty - my) < 0.002
+          ? 0
+          : requestAnimationFrame(step);
+      };
+
+      const kick = () => {
+        if (!raf) raf = requestAnimationFrame(step);
+      };
+
+      zone.addEventListener("mousemove", (e) => {
+        const r = zone.getBoundingClientRect();
+        tx = ((e.clientX - r.left) / Math.max(r.width, 1)) * 2 - 1;
+        ty = ((e.clientY - r.top) / Math.max(r.height, 1)) * 2 - 1;
+        kick();
+      });
+
+      zone.addEventListener("mouseleave", () => {
+        tx = 0;
+        ty = 0;
+        kick();
+      });
+    }
+  }
+
+  // Each council member is a component in the case; the readout and the
+  // parts list stay in sync with whichever one is hovered or focused.
+  const councilRig = document.getElementById("councilRig");
+
+  if (councilRig) {
+    const MEMBERS = [
+      { name: "Tushar", handle: "@benzo", role: "President", code: "CPU // SOCKET-0" },
+      { name: "Mayank", handle: "@the_moon_guy", role: "Vice President", code: "MAINBOARD // X-01" },
+      { name: "Arsh", handle: "@cha0s", role: "AI Head", code: "GPU // 3x FAN" },
+      { name: "Arnabi", handle: "@g1ow", role: "Research Head", code: "MEMORY // 4x DIMM" },
+      { name: "Mauray", handle: "@nrg", role: "PWN Head", code: "COOLER // 120MM" },
+      { name: "Ayush", handle: "@cleverclaw", role: "Web Head", code: "NIC // 10GBE" },
+      { name: "Tanish", handle: "@tanishfr", role: "DFIR Head", code: "STORAGE // NVME" },
+      { name: "Stavya", handle: "@stapat", role: "Treasurer", code: "PSU // 850W" },
+      { name: "Tarush Sonakya", handle: "@Anonimbus", role: "Advisor", code: "INTAKE // FAN-01" },
+      { name: "Kartik Vats", handle: "@cyc", role: "Advisor", code: "INTAKE // FAN-02" },
+      { name: "Anuj Rawat", handle: "", role: "Alumni", code: "CHASSIS // FRAME" },
+    ];
+
+    const parts = Array.from(councilRig.querySelectorAll(".part, .pc-name"));
+    const rows = Array.from(councilRig.querySelectorAll(".bom-row"));
+    const out = {
+      code: document.getElementById("crCode"),
+      name: document.getElementById("crName"),
+      handle: document.getElementById("crHandle"),
+      role: document.getElementById("crRole"),
+    };
+
+    const activate = (index) => {
+      const m = MEMBERS[index];
+      if (!m) return;
+      if (out.code) out.code.textContent = m.code;
+      if (out.name) out.name.textContent = m.name;
+      if (out.handle) out.handle.textContent = m.handle;
+      if (out.role) out.role.textContent = m.role;
+
+      parts.forEach((p) => p.classList.toggle("is-active", Number(p.dataset.member) === index));
+      const rigEl = document.getElementById("rig");
+      if (rigEl) rigEl.classList.toggle("is-chassis", m.code.indexOf("CHASSIS") === 0);
+      rows.forEach((r) => r.classList.toggle("is-active", Number(r.dataset.member) === index));
+    };
+
+    parts.concat(rows).forEach((el) => {
+      const index = Number(el.dataset.member);
+      el.addEventListener("mouseenter", () => activate(index));
+      el.addEventListener("focus", () => activate(index));
+      el.addEventListener("click", () => activate(index));
+    });
+
+    activate(0);
   }
 });
