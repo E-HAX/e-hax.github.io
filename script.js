@@ -193,18 +193,23 @@ document.addEventListener("DOMContentLoaded", () => {
     revealObserver.observe(el);
   });
 
-  // Timeline items observer
-  const timelineObserver = new IntersectionObserver((entries) => {
+  // Entry cards rise into view. Cards are visible by default and only hidden
+  // once JS is running, so they never stay blank if this script fails.
+  const entryObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        entryObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
 
-  document.querySelectorAll(".timeline-item").forEach((el) => {
-    timelineObserver.observe(el);
-  });
+  document
+    .querySelectorAll(".entry-card, .ach-card, .podium-card")
+    .forEach((el) => {
+      el.classList.add("rise-in");
+      entryObserver.observe(el);
+    });
 
   // Section nav highlight observer
   const sectionObserver = new IntersectionObserver(
