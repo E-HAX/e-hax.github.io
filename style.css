@@ -243,6 +243,35 @@ a {
   max-height: 350px;
 }
 
+@media (max-width: 767px) {
+  /* Phones: the bar is always on screen (there is no other way to navigate
+     from the hero), and the open menu is tall enough for all eight links,
+     scrolling only if the screen is shorter than that. */
+  .navbar {
+    transform: translateY(0);
+  }
+
+  .navbar.menu-open {
+    background-color: rgba(10, 10, 10, 0.96);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .navbar.menu-open .mobile-menu {
+    max-height: calc(100vh - 72px);
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+  }
+
+  .mobile-menu a {
+    padding: 15px 24px;
+  }
+
+  .mobile-menu a:hover {
+    padding-left: 30px;
+  }
+}
+
 @media (min-width: 768px) {
   .menu-toggle,
   .mobile-menu {

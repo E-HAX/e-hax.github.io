@@ -102,46 +102,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menuToggle");
   const mobileMenu = document.getElementById("mobileMenu");
 
+  const setMenu = (open) => {
+    if (!navbar || !menuToggle) return;
+    navbar.classList.toggle("menu-open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    const icon = menuToggle.querySelector(".material-symbols-outlined");
+    if (icon) icon.textContent = open ? "close" : "menu";
+  };
+
   const setNavbarState = () => {
     if (!navbar) return;
     const y = window.scrollY;
 
-    if (y > 80) {
-      navbar.classList.add("visible");
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-      navbar.classList.remove("visible");
-      navbar.classList.remove("menu-open");
-
-      if (menuToggle) {
-        menuToggle.setAttribute("aria-expanded", "false");
-        const icon = menuToggle.querySelector(".material-symbols-outlined");
-        if (icon) icon.textContent = "menu";
-      }
-    }
+    // Past the hero the bar gets its blurred background. On desktop it also
+    // slides in here; on phones CSS keeps it on screen from the start.
+    navbar.classList.toggle("visible", y > 80);
+    navbar.classList.toggle("scrolled", y > 80);
   };
 
   setNavbarState();
   window.addEventListener("scroll", setNavbarState, { passive: true });
 
   if (menuToggle && navbar) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navbar.classList.toggle("menu-open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      const icon = menuToggle.querySelector(".material-symbols-outlined");
-      if (icon) icon.textContent = isOpen ? "close" : "menu";
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setMenu(!navbar.classList.contains("menu-open"));
+    });
+
+    // Tapping outside the bar, or pressing Escape, closes the menu.
+    document.addEventListener("click", (e) => {
+      if (navbar.classList.contains("menu-open") && !navbar.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navbar.classList.contains("menu-open")) {
+        setMenu(false);
+        menuToggle.focus();
+      }
     });
   }
 
   if (mobileMenu && navbar && menuToggle) {
     mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navbar.classList.remove("menu-open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        const icon = menuToggle.querySelector(".material-symbols-outlined");
-        if (icon) icon.textContent = "menu";
-      });
+      link.addEventListener("click", () => setMenu(false));
     });
   }
 
