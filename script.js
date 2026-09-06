@@ -559,4 +559,66 @@ document.addEventListener("DOMContentLoaded", () => {
       cursorGlow.style.top = e.clientY + "px";
     });
   }
+
+  // ==========================================
+  // RING CAROUSEL DRAG INTERACTION
+  // ==========================================
+  const ring = document.querySelector(".ring");
+  const ringStage = document.querySelector(".ring-stage");
+  if (ring && ringStage) {
+    let isDragging = false;
+    let startX = 0;
+    let currentY = 0;
+    let targetY = 0;
+    let isHovered = false;
+
+    ring.style.animation = "none";
+    ringStage.style.cursor = "grab";
+
+    ringStage.addEventListener("mouseenter", () => isHovered = true);
+    ringStage.addEventListener("mouseleave", () => {
+      isHovered = false;
+      // if we want to stop drag when leaving stage, we could, but window listeners handle it
+    });
+
+    const updateRotation = () => {
+      if (!isDragging && !isHovered) {
+        targetY += 0.125;
+      }
+      currentY += (targetY - currentY) * 0.1;
+      ring.style.transform = `rotateX(-10deg) rotateY(${currentY}deg)`;
+      requestAnimationFrame(updateRotation);
+    };
+    
+    updateRotation();
+
+    const handleDown = (e) => {
+      isDragging = true;
+      startX = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
+      ringStage.style.cursor = "grabbing";
+    };
+
+    const handleMove = (e) => {
+      if (!isDragging) return;
+      const x = e.type.includes("mouse") ? e.clientX : e.touches[0].clientX;
+      const deltaX = x - startX;
+      targetY += deltaX * 0.15;
+      startX = x;
+    };
+
+    const handleUp = () => {
+      isDragging = false;
+      ringStage.style.cursor = "grab";
+    };
+
+    ringStage.addEventListener("dragstart", e => e.preventDefault());
+    
+    ringStage.addEventListener("mousedown", handleDown);
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("mouseup", handleUp);
+
+    ringStage.addEventListener("touchstart", handleDown, { passive: true });
+    window.addEventListener("touchmove", handleMove, { passive: true });
+    window.addEventListener("touchend", handleUp);
+  }
 });
