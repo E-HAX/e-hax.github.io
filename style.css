@@ -2122,6 +2122,95 @@ a {
   color: var(--text-secondary);
 }
 
+/* Faculty advisors */
+.advisors-section {
+  padding-top: 0;
+}
+
+.advisor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.advisor-card {
+  display: grid;
+  grid-template-columns: 156px minmax(0, 1fr);
+  min-height: 224px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-card);
+  transition: border-color 0.25s ease, transform 0.25s var(--ease-out-expo), background 0.25s ease;
+}
+
+.advisor-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+.advisor-photo-wrap {
+  min-height: 224px;
+  overflow: hidden;
+  background: #242424;
+}
+
+.advisor-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%);
+  transition: filter 0.25s ease, transform 0.4s var(--ease-out-expo);
+}
+
+.advisor-card:hover .advisor-photo {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.advisor-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+}
+
+.advisor-index {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.advisor-card h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 2vw, 27px);
+  line-height: 1.1;
+}
+
+.advisor-role {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.advisor-detail {
+  max-width: 24ch;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 /* ------------------------------------------
    Gaming rig: 3D case with a glass side panel
    ------------------------------------------ */
@@ -3254,6 +3343,38 @@ a {
 }
 
 @media (max-width: 767px) {
+  .advisor-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .advisor-card {
+    grid-template-columns: minmax(88px, 30%) minmax(0, 1fr);
+    min-height: 172px;
+  }
+
+  .advisor-photo-wrap {
+    min-height: 172px;
+  }
+
+  .advisor-content {
+    gap: 6px;
+    padding: 14px;
+  }
+
+  .advisor-card h3 {
+    font-size: 18px;
+    line-height: 1.15;
+  }
+
+  .advisor-role {
+    font-size: 10px;
+  }
+
+  .advisor-detail {
+    font-size: 12px;
+  }
+
   .rig-stage {
     height: 380px;
   }

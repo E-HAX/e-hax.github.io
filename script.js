@@ -938,7 +938,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Stavya", handle: "@stapat", role: "Treasurer", code: "PSU // 850W" },
       { name: "Tarush Sonakya", handle: "@Anonimbus", role: "Advisor", code: "INTAKE // FAN-01" },
       { name: "Kartik Vats", handle: "@cyc", role: "Advisor", code: "INTAKE // FAN-02" },
-      { name: "Anuj Rawat", handle: "", role: "Alumni", code: "CHASSIS // FRAME" },
+      { name: "Anuj Rawat", handle: "@tazer", role: "Alumni", code: "CHASSIS // FRAME" },
     ];
 
     const parts = Array.from(councilRig.querySelectorAll(".part, .pc-name"));
