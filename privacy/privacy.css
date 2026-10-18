@@ -1,9 +1,62 @@
 /* ==========================================
-   PRIVACY PAGE - extends style.css + guide/ehax101.css
+   PRIVACY PAGE - extends style.css
    ========================================== */
 
-.guide-hero {
-  padding-bottom: 32px;
+/* tighter vertical rhythm between sections than the default site sections */
+.section-container {
+  padding: 64px 32px;
+}
+
+/* ---- hero ---- */
+.privacy-hero {
+  padding: 180px 32px 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.privacy-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 28px;
+}
+
+.privacy-eyebrow .material-symbols-outlined {
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.privacy-hero-title {
+  font-family: var(--font-sans);
+  font-size: clamp(40px, 7vw, 76px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.privacy-hero-title span {
+  color: var(--text-muted);
+}
+
+.privacy-hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto 40px;
 }
 
 .privacy-updated {
@@ -14,6 +67,55 @@
   color: var(--text-muted);
 }
 
+/* ---- prose ---- */
+.privacy-prose {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  max-width: 780px;
+}
+
+.privacy-prose + .privacy-prose {
+  margin-top: 20px;
+}
+
+.privacy-prose strong,
+.privacy-list strong,
+.privacy-callout-body strong {
+  color: var(--text-primary);
+}
+
+.privacy-prose a,
+.privacy-callout-body a,
+.privacy-step-body a {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--text-primary);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  border-radius: 4px;
+  padding: 0 2px;
+  margin: 0 -2px;
+  transition: background 0.2s ease, color 0.2s ease, text-decoration-thickness 0.2s ease;
+}
+
+.privacy-prose a:hover,
+.privacy-callout-body a:hover,
+.privacy-step-body a:hover {
+  background: var(--accent-dim);
+  text-decoration-thickness: 2px;
+}
+
+.privacy-prose a:focus-visible,
+.privacy-callout-body a:focus-visible,
+.privacy-step-body a:focus-visible {
+  outline: 1px solid var(--text-primary);
+  outline-offset: 3px;
+}
+
+/* ---- bullet list ---- */
 .privacy-list {
   list-style: none;
   max-width: 780px;
@@ -41,12 +143,171 @@
   font-weight: 700;
 }
 
-.privacy-list strong {
-  color: var(--text-primary);
+/* ---- callout box ---- */
+.privacy-callout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 24px 28px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-card);
+  margin: 32px 0;
 }
 
+.privacy-callout.start {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.privacy-callout > .material-symbols-outlined {
+  font-size: 22px;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.privacy-callout-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.privacy-callout-body p {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.privacy-callout-body p + p {
+  margin-top: 10px;
+}
+
+.privacy-callout-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ---- third-party service cards ---- */
+.privacy-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.privacy-step {
+  display: flex;
+  gap: 20px;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-card);
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.privacy-step:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.privacy-step-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+}
+
+.privacy-step-body h4 {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.privacy-step-body p {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* long URLs never force horizontal scroll */
+.privacy-prose,
+.privacy-list li,
+.privacy-callout-body,
+.privacy-step-body p {
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+   ========================================== */
 @media (max-width: 767px) {
+  .section-container {
+    padding: 44px 20px;
+  }
+
+  .privacy-hero {
+    padding: 130px 20px 24px;
+  }
+
+  .privacy-eyebrow {
+    font-size: 11px;
+    padding: 7px 14px;
+    margin-bottom: 20px;
+  }
+
+  .privacy-hero-subtitle {
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  .privacy-prose {
+    font-size: 15px;
+  }
+
   .privacy-list li {
     font-size: 14px;
+  }
+
+  .privacy-callout {
+    padding: 18px 20px;
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .privacy-steps {
+    gap: 12px;
+  }
+
+  .privacy-step {
+    padding: 18px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .privacy-hero-title {
+    font-size: clamp(32px, 12vw, 44px);
   }
 }
